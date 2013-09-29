@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="application/javascript" src="query_server.js"></script>
+</head>
+
+<body onload="query_server.core.on_load()">
+
+<section style="border-style:solid; border-width:1px;">
+    <div id="meta"></div>
+</section>
+
+<section style="border-style:solid; border-width:1px;">
+    <form>
+        <fieldset>
+            <legend>SQL</legend>
+            <label for="app">app</label>
+            <select id="app">
+                <option>WoW</option>
+            </select>
+            <label for="version">version</label>
+            <select id="version">
+                <option>panda</option>
+            </select>
+            <label for="db">db</label>
+            <select id="db">
+                <option>db</option>
+            </select>
+            <textarea id="sql-input" spellcheck=false></textarea>
+            <button type="button" id="submit-sql">submit</button>
+            <a id="url">download</a>
+            <label for="query_name">query name</label>
+            <input type="text" id="query_name">
+            <button type="button" id="add">save</button>
+            <button type="button" id="delete">delete</button>
+        </fieldset>
+    </form>
+    <progress id="progress" value=0 max=1></progress>
+    <textarea id="log"></textarea>
+    <div id="result_tbl"></div>
+    <div id="saved_queries"></div>
+    <div id="history"></div>
+</section>
+
+</body>
+</html>
