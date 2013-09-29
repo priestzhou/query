@@ -5,7 +5,8 @@
 *   安装[JDK7](http://java.oracle.com)
 *   安装[Leiningen](https://github.com/technomancy/leiningen)
 *   替换或添加自己的html/css/js/...到publics目录下
-*   执行"lein run"
+*   执行"lein run -p 12345"
+*   打开浏览器访问localhost:12345/sql/
 
 ##  publics目录下文件的作用
 
