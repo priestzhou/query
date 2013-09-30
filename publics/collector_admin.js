@@ -1762,96 +1762,96 @@ cljs.core._invoke = function() {
     if(a ? a.cljs$core$IFn$_invoke$arity$17 : a) {
       return a.cljs$core$IFn$_invoke$arity$17(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t)
     }
-    var w;
-    w = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if(!w && (w = cljs.core._invoke._, !w)) {
-      throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
-    }
-    return w.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t)
-  }, v = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w) {
-    if(a ? a.cljs$core$IFn$_invoke$arity$18 : a) {
-      return a.cljs$core$IFn$_invoke$arity$18(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w)
-    }
     var v;
     v = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if(!v && (v = cljs.core._invoke._, !v)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return v.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w)
-  }, w = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v) {
-    if(a ? a.cljs$core$IFn$_invoke$arity$19 : a) {
-      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v)
+    return v.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t)
+  }, w = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v) {
+    if(a ? a.cljs$core$IFn$_invoke$arity$18 : a) {
+      return a.cljs$core$IFn$_invoke$arity$18(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v)
     }
     var u;
     u = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if(!u && (u = cljs.core._invoke._, !u)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return u.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v)
-  }, z = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u) {
-    if(a ? a.cljs$core$IFn$_invoke$arity$20 : a) {
-      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u)
+    return u.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v)
+  }, v = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u) {
+    if(a ? a.cljs$core$IFn$_invoke$arity$19 : a) {
+      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u)
     }
-    var z;
-    z = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if(!z && (z = cljs.core._invoke._, !z)) {
+    var w;
+    w = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if(!w && (w = cljs.core._invoke._, !w)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return z.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u)
-  }, I = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u, z) {
+    return w.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u)
+  }, B = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w) {
+    if(a ? a.cljs$core$IFn$_invoke$arity$20 : a) {
+      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w)
+    }
+    var B;
+    B = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if(!B && (B = cljs.core._invoke._, !B)) {
+      throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
+    }
+    return B.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w)
+  }, I = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w, B) {
     if(a ? a.cljs$core$IFn$_invoke$arity$21 : a) {
-      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u, z)
+      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w, B)
     }
     var I;
     I = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if(!I && (I = cljs.core._invoke._, !I)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return I.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, w, v, u, z)
-  }, a = function(a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S, T) {
+    return I.call(null, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, v, u, w, B)
+  }, a = function(a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S, T) {
     switch(arguments.length) {
       case 1:
         return b.call(this, a);
       case 2:
-        return c.call(this, a, y);
+        return c.call(this, a, x);
       case 3:
-        return d.call(this, a, y, x);
+        return d.call(this, a, x, y);
       case 4:
-        return e.call(this, a, y, x, A);
+        return e.call(this, a, x, y, z);
       case 5:
-        return f.call(this, a, y, x, A, B);
+        return f.call(this, a, x, y, z, A);
       case 6:
-        return g.call(this, a, y, x, A, B, C);
+        return g.call(this, a, x, y, z, A, C);
       case 7:
-        return h.call(this, a, y, x, A, B, C, D);
+        return h.call(this, a, x, y, z, A, C, D);
       case 8:
-        return k.call(this, a, y, x, A, B, C, D, E);
+        return k.call(this, a, x, y, z, A, C, D, E);
       case 9:
-        return l.call(this, a, y, x, A, B, C, D, E, F);
+        return l.call(this, a, x, y, z, A, C, D, E, F);
       case 10:
-        return m.call(this, a, y, x, A, B, C, D, E, F, G);
+        return m.call(this, a, x, y, z, A, C, D, E, F, G);
       case 11:
-        return n.call(this, a, y, x, A, B, C, D, E, F, G, H);
+        return n.call(this, a, x, y, z, A, C, D, E, F, G, H);
       case 12:
-        return p.call(this, a, y, x, A, B, C, D, E, F, G, H, J);
+        return p.call(this, a, x, y, z, A, C, D, E, F, G, H, J);
       case 13:
-        return q.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K);
+        return q.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K);
       case 14:
-        return r.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L);
+        return r.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L);
       case 15:
-        return s.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M);
+        return s.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M);
       case 16:
-        return t.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N);
+        return t.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N);
       case 17:
-        return u.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O);
+        return u.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O);
       case 18:
-        return v.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O, P);
+        return w.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O, P);
       case 19:
-        return w.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O, P, Q);
+        return v.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O, P, Q);
       case 20:
-        return z.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S);
+        return B.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S);
       case 21:
-        return I.call(this, a, y, x, A, B, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S, T)
+        return I.call(this, a, x, y, z, A, C, D, E, F, G, H, J, K, L, M, N, O, P, Q, S, T)
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -1872,9 +1872,9 @@ cljs.core._invoke = function() {
   a.cljs$core$IFn$_invoke$arity$15 = s;
   a.cljs$core$IFn$_invoke$arity$16 = t;
   a.cljs$core$IFn$_invoke$arity$17 = u;
-  a.cljs$core$IFn$_invoke$arity$18 = v;
-  a.cljs$core$IFn$_invoke$arity$19 = w;
-  a.cljs$core$IFn$_invoke$arity$20 = z;
+  a.cljs$core$IFn$_invoke$arity$18 = w;
+  a.cljs$core$IFn$_invoke$arity$19 = v;
+  a.cljs$core$IFn$_invoke$arity$20 = B;
   a.cljs$core$IFn$_invoke$arity$21 = I;
   return a
 }();
@@ -3476,16 +3476,16 @@ cljs.core.with_meta = function with_meta(b, c) {
     c && (b ? (c = (c = b.cljs$lang$protocol_mask$partition0$ & 262144) ? c : b.cljs$core$IWithMeta$, c = c ? !0 : b.cljs$lang$protocol_mask$partition0$ ? !1 : cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b)) : c = cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b), c = !c);
     return c
   }() ? with_meta.call(null, function() {
-    void 0 === cljs.core.t4162 && (cljs.core.t4162 = {}, cljs.core.t4162 = function(b, c, f, g) {
+    void 0 === cljs.core.t4009 && (cljs.core.t4009 = {}, cljs.core.t4009 = function(b, c, f, g) {
       this.meta = b;
       this.o = c;
       this.with_meta = f;
-      this.meta4163 = g;
+      this.meta4010 = g;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217
-    }, cljs.core.t4162.cljs$lang$type = !0, cljs.core.t4162.cljs$lang$ctorStr = "cljs.core/t4162", cljs.core.t4162.cljs$lang$ctorPrWriter = function(b, c, f) {
-      return cljs.core._write.call(null, c, "cljs.core/t4162")
-    }, cljs.core.t4162.prototype.call = function() {
+    }, cljs.core.t4009.cljs$lang$type = !0, cljs.core.t4009.cljs$lang$ctorStr = "cljs.core/t4009", cljs.core.t4009.cljs$lang$ctorPrWriter = function(b, c, f) {
+      return cljs.core._write.call(null, c, "cljs.core/t4009")
+    }, cljs.core.t4009.prototype.call = function() {
       var b = function(b, c) {
         return cljs.core.apply.call(null, b.o, c)
       }, c = function(c, e) {
@@ -3502,17 +3502,17 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c
-    }(), cljs.core.t4162.prototype.apply = function(b, c) {
+    }(), cljs.core.t4009.prototype.apply = function(b, c) {
       b = this;
       return b.call.apply(b, [b].concat(c.slice()))
-    }, cljs.core.t4162.prototype.cljs$core$Fn$ = !0, cljs.core.t4162.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-      return this.meta4163
-    }, cljs.core.t4162.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-      return new cljs.core.t4162(this.meta, this.o, this.with_meta, c)
-    }, cljs.core.__GT_t4162 = function(b, c, f, g) {
-      return new cljs.core.t4162(b, c, f, g)
+    }, cljs.core.t4009.prototype.cljs$core$Fn$ = !0, cljs.core.t4009.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+      return this.meta4010
+    }, cljs.core.t4009.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+      return new cljs.core.t4009(this.meta, this.o, this.with_meta, c)
+    }, cljs.core.__GT_t4009 = function(b, c, f, g) {
+      return new cljs.core.t4009(b, c, f, g)
     });
-    return new cljs.core.t4162(c, b, with_meta, null)
+    return new cljs.core.t4009(c, b, with_meta, null)
   }(), c) : cljs.core._with_meta.call(null, b, c)
 };
 cljs.core.meta = function(a) {
@@ -6184,27 +6184,27 @@ cljs.core.apply_to = function(a, b, c) {
   if(15 === b) {
     return a.cljs$core$IFn$_invoke$arity$15 ? a.cljs$core$IFn$_invoke$arity$15(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s)
   }
-  var t = cljs.core._first.call(null, u), v = cljs.core._rest.call(null, u);
+  var t = cljs.core._first.call(null, u), w = cljs.core._rest.call(null, u);
   if(16 === b) {
     return a.cljs$core$IFn$_invoke$arity$16 ? a.cljs$core$IFn$_invoke$arity$16(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t)
   }
-  var u = cljs.core._first.call(null, v), w = cljs.core._rest.call(null, v);
+  var u = cljs.core._first.call(null, w), v = cljs.core._rest.call(null, w);
   if(17 === b) {
     return a.cljs$core$IFn$_invoke$arity$17 ? a.cljs$core$IFn$_invoke$arity$17(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u)
   }
-  var v = cljs.core._first.call(null, w), z = cljs.core._rest.call(null, w);
+  var w = cljs.core._first.call(null, v), B = cljs.core._rest.call(null, v);
   if(18 === b) {
-    return a.cljs$core$IFn$_invoke$arity$18 ? a.cljs$core$IFn$_invoke$arity$18(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v)
+    return a.cljs$core$IFn$_invoke$arity$18 ? a.cljs$core$IFn$_invoke$arity$18(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w)
   }
-  w = cljs.core._first.call(null, z);
-  z = cljs.core._rest.call(null, z);
+  v = cljs.core._first.call(null, B);
+  B = cljs.core._rest.call(null, B);
   if(19 === b) {
-    return a.cljs$core$IFn$_invoke$arity$19 ? a.cljs$core$IFn$_invoke$arity$19(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v, w) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v, w)
+    return a.cljs$core$IFn$_invoke$arity$19 ? a.cljs$core$IFn$_invoke$arity$19(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w, v) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w, v)
   }
-  var I = cljs.core._first.call(null, z);
-  cljs.core._rest.call(null, z);
+  var I = cljs.core._first.call(null, B);
+  cljs.core._rest.call(null, B);
   if(20 === b) {
-    return a.cljs$core$IFn$_invoke$arity$20 ? a.cljs$core$IFn$_invoke$arity$20(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v, w, I) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, v, w, I)
+    return a.cljs$core$IFn$_invoke$arity$20 ? a.cljs$core$IFn$_invoke$arity$20(c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w, v, I) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, p, q, r, s, t, u, w, v, I)
   }
   throw Error("Only up to 20 arguments supported on functions");
 };
@@ -17989,7 +17989,7 @@ cljs.reader.parse_and_validate_timestamp = function() {
         return cljs.core._EQ_.call(null, a, "-") ? "-1" : "1"
       }], !0), d)), p = cljs.core.nth.call(null, n, 0, null);
       cljs.core.nth.call(null, p, 0, null);
-      var d = cljs.core.nth.call(null, p, 1, null), m = cljs.core.nth.call(null, p, 2, null), q = cljs.core.nth.call(null, p, 3, null), r = cljs.core.nth.call(null, p, 4, null), s = cljs.core.nth.call(null, p, 5, null), t = cljs.core.nth.call(null, p, 6, null), p = cljs.core.nth.call(null, p, 7, null), u = cljs.core.nth.call(null, n, 1, null), n = cljs.core.nth.call(null, u, 0, null), v = cljs.core.nth.call(null, u, 1, null), u = cljs.core.nth.call(null, u, 2, null), n = n * (60 * v + u);
+      var d = cljs.core.nth.call(null, p, 1, null), m = cljs.core.nth.call(null, p, 2, null), q = cljs.core.nth.call(null, p, 3, null), r = cljs.core.nth.call(null, p, 4, null), s = cljs.core.nth.call(null, p, 5, null), t = cljs.core.nth.call(null, p, 6, null), p = cljs.core.nth.call(null, p, 7, null), u = cljs.core.nth.call(null, n, 1, null), n = cljs.core.nth.call(null, u, 0, null), w = cljs.core.nth.call(null, u, 1, null), u = cljs.core.nth.call(null, u, 2, null), n = n * (60 * w + u);
       return cljs.core.PersistentVector.fromArray([cljs.core.not.call(null, c) ? 1970 : d, cljs.core.not.call(null, f) ? 1 : b.call(null, 1, m, 12, "timestamp month field must be in range 1..12"), cljs.core.not.call(null, g) ? 1 : b.call(null, 1, q, cljs.reader.days_in_month.call(null, m, cljs.reader.leap_year_QMARK_.call(null, d)), "timestamp day field must be in range 1..last day in month"), cljs.core.not.call(null, h) ? 0 : b.call(null, 0, r, 23, "timestamp hour field must be in range 0..23"), 
       cljs.core.not.call(null, k) ? 0 : b.call(null, 0, s, 59, "timestamp minute field must be in range 0..59"), cljs.core.not.call(null, l) ? 0 : b.call(null, 0, t, cljs.core._EQ_.call(null, s, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), cljs.core.not.call(null, e) ? 0 : b.call(null, 0, p, 999, "timestamp millisecond field must be in range 0..999"), n], !0)
     }
@@ -20288,20 +20288,20 @@ goog.dom.forms.setSelectMultiple_ = function(a, b) {
     }
   }
 };
-var domina = {support:{}}, div_5647 = document.createElement("div"), test_html_5648 = "   \x3clink/\x3e\x3ctable\x3e\x3c/table\x3e\x3ca href\x3d'/a' style\x3d'top:1px;float:left;opacity:.55;'\x3ea\x3c/a\x3e\x3cinput type\x3d'checkbox'/\x3e";
-div_5647.innerHTML = test_html_5648;
-domina.support.leading_whitespace_QMARK_ = cljs.core._EQ_.call(null, div_5647.firstChild.nodeType, 3);
-domina.support.extraneous_tbody_QMARK_ = cljs.core._EQ_.call(null, div_5647.getElementsByTagName("tbody").length, 0);
-domina.support.unscoped_html_elements_QMARK_ = cljs.core._EQ_.call(null, div_5647.getElementsByTagName("link").length, 0);
+var domina = {support:{}}, div_5494 = document.createElement("div"), test_html_5495 = "   \x3clink/\x3e\x3ctable\x3e\x3c/table\x3e\x3ca href\x3d'/a' style\x3d'top:1px;float:left;opacity:.55;'\x3ea\x3c/a\x3e\x3cinput type\x3d'checkbox'/\x3e";
+div_5494.innerHTML = test_html_5495;
+domina.support.leading_whitespace_QMARK_ = cljs.core._EQ_.call(null, div_5494.firstChild.nodeType, 3);
+domina.support.extraneous_tbody_QMARK_ = cljs.core._EQ_.call(null, div_5494.getElementsByTagName("tbody").length, 0);
+domina.support.unscoped_html_elements_QMARK_ = cljs.core._EQ_.call(null, div_5494.getElementsByTagName("link").length, 0);
 domina.re_html = /<|&#?\w+;/;
 domina.re_leading_whitespace = /^\s+/;
 domina.re_xhtml_tag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/i;
 domina.re_tag_name = /<([\w:]+)/;
 domina.re_no_inner_html = /<(?:script|style)/i;
 domina.re_tbody = /<tbody/i;
-var opt_wrapper_5199 = cljs.core.PersistentVector.fromArray([1, "\x3cselect multiple\x3d'multiple'\x3e", "\x3c/select\x3e"], !0), table_section_wrapper_5200 = cljs.core.PersistentVector.fromArray([1, "\x3ctable\x3e", "\x3c/table\x3e"], !0), cell_wrapper_5201 = cljs.core.PersistentVector.fromArray([3, "\x3ctable\x3e\x3ctbody\x3e\x3ctr\x3e", "\x3c/tr\x3e\x3c/tbody\x3e\x3c/table\x3e"], !0);
-domina.wrap_map = cljs.core.PersistentHashMap.fromArrays("col \ufdd0:default tfoot caption optgroup legend area td thead th option tbody tr colgroup".split(" "), [cljs.core.PersistentVector.fromArray([2, "\x3ctable\x3e\x3ctbody\x3e\x3c/tbody\x3e\x3ccolgroup\x3e", "\x3c/colgroup\x3e\x3c/table\x3e"], !0), cljs.core.PersistentVector.fromArray([0, "", ""], !0), table_section_wrapper_5200, table_section_wrapper_5200, opt_wrapper_5199, cljs.core.PersistentVector.fromArray([1, "\x3cfieldset\x3e", "\x3c/fieldset\x3e"], 
-!0), cljs.core.PersistentVector.fromArray([1, "\x3cmap\x3e", "\x3c/map\x3e"], !0), cell_wrapper_5201, table_section_wrapper_5200, cell_wrapper_5201, opt_wrapper_5199, table_section_wrapper_5200, cljs.core.PersistentVector.fromArray([2, "\x3ctable\x3e\x3ctbody\x3e", "\x3c/tbody\x3e\x3c/table\x3e"], !0), table_section_wrapper_5200]);
+var opt_wrapper_5046 = cljs.core.PersistentVector.fromArray([1, "\x3cselect multiple\x3d'multiple'\x3e", "\x3c/select\x3e"], !0), table_section_wrapper_5047 = cljs.core.PersistentVector.fromArray([1, "\x3ctable\x3e", "\x3c/table\x3e"], !0), cell_wrapper_5048 = cljs.core.PersistentVector.fromArray([3, "\x3ctable\x3e\x3ctbody\x3e\x3ctr\x3e", "\x3c/tr\x3e\x3c/tbody\x3e\x3c/table\x3e"], !0);
+domina.wrap_map = cljs.core.PersistentHashMap.fromArrays("col \ufdd0:default tfoot caption optgroup legend area td thead th option tbody tr colgroup".split(" "), [cljs.core.PersistentVector.fromArray([2, "\x3ctable\x3e\x3ctbody\x3e\x3c/tbody\x3e\x3ccolgroup\x3e", "\x3c/colgroup\x3e\x3c/table\x3e"], !0), cljs.core.PersistentVector.fromArray([0, "", ""], !0), table_section_wrapper_5047, table_section_wrapper_5047, opt_wrapper_5046, cljs.core.PersistentVector.fromArray([1, "\x3cfieldset\x3e", "\x3c/fieldset\x3e"], 
+!0), cljs.core.PersistentVector.fromArray([1, "\x3cmap\x3e", "\x3c/map\x3e"], !0), cell_wrapper_5048, table_section_wrapper_5047, cell_wrapper_5048, opt_wrapper_5046, table_section_wrapper_5047, cljs.core.PersistentVector.fromArray([2, "\x3ctable\x3e\x3ctbody\x3e", "\x3c/tbody\x3e\x3c/table\x3e"], !0), table_section_wrapper_5047]);
 domina.remove_extraneous_tbody_BANG_ = function(a, b, c, d) {
   var e = cljs.core.not.call(null, cljs.core.re_find.call(null, domina.re_tbody, b));
   b = function() {
@@ -21039,41 +21039,41 @@ domina.events.root_element = window.document.documentElement;
 domina.events.create_listener_function = function create_listener_function(b) {
   return function(c) {
     b.call(null, function() {
-      void 0 === domina.events.t5042 && (domina.events.t5042 = {}, domina.events.t5042 = function(b, c, f, g) {
+      void 0 === domina.events.t4889 && (domina.events.t4889 = {}, domina.events.t4889 = function(b, c, f, g) {
         this.evt = b;
         this.f = c;
         this.create_listener_function = f;
-        this.meta5043 = g;
+        this.meta4890 = g;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393472
-      }, domina.events.t5042.cljs$lang$type = !0, domina.events.t5042.cljs$lang$ctorStr = "domina.events/t5042", domina.events.t5042.cljs$lang$ctorPrWriter = function(b, c, f) {
-        return cljs.core._write.call(null, c, "domina.events/t5042")
-      }, domina.events.t5042.prototype.cljs$core$ILookup$_lookup$arity$2 = function(b, c) {
+      }, domina.events.t4889.cljs$lang$type = !0, domina.events.t4889.cljs$lang$ctorStr = "domina.events/t4889", domina.events.t4889.cljs$lang$ctorPrWriter = function(b, c, f) {
+        return cljs.core._write.call(null, c, "domina.events/t4889")
+      }, domina.events.t4889.prototype.cljs$core$ILookup$_lookup$arity$2 = function(b, c) {
         var f = this.evt[c];
         return cljs.core.truth_(f) ? f : this.evt[cljs.core.name.call(null, c)]
-      }, domina.events.t5042.prototype.cljs$core$ILookup$_lookup$arity$3 = function(b, c, f) {
+      }, domina.events.t4889.prototype.cljs$core$ILookup$_lookup$arity$3 = function(b, c, f) {
         b = b.cljs$core$ILookup$_lookup$arity$2(b, c);
         return cljs.core.truth_(b) ? b : f
-      }, domina.events.t5042.prototype.domina$events$Event$ = !0, domina.events.t5042.prototype.domina$events$Event$prevent_default$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$ = !0, domina.events.t4889.prototype.domina$events$Event$prevent_default$arity$1 = function(b) {
         return this.evt.preventDefault()
-      }, domina.events.t5042.prototype.domina$events$Event$stop_propagation$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$stop_propagation$arity$1 = function(b) {
         return this.evt.stopPropagation()
-      }, domina.events.t5042.prototype.domina$events$Event$target$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$target$arity$1 = function(b) {
         return this.evt.target
-      }, domina.events.t5042.prototype.domina$events$Event$current_target$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$current_target$arity$1 = function(b) {
         return this.evt.currentTarget
-      }, domina.events.t5042.prototype.domina$events$Event$event_type$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$event_type$arity$1 = function(b) {
         return this.evt.type
-      }, domina.events.t5042.prototype.domina$events$Event$raw_event$arity$1 = function(b) {
+      }, domina.events.t4889.prototype.domina$events$Event$raw_event$arity$1 = function(b) {
         return this.evt
-      }, domina.events.t5042.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-        return this.meta5043
-      }, domina.events.t5042.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-        return new domina.events.t5042(this.evt, this.f, this.create_listener_function, c)
-      }, domina.events.__GT_t5042 = function(b, c, f, g) {
-        return new domina.events.t5042(b, c, f, g)
+      }, domina.events.t4889.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+        return this.meta4890
+      }, domina.events.t4889.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+        return new domina.events.t4889(this.evt, this.f, this.create_listener_function, c)
+      }, domina.events.__GT_t4889 = function(b, c, f, g) {
+        return new domina.events.t4889(b, c, f, g)
       });
-      return new domina.events.t5042(c, b, create_listener_function, null)
+      return new domina.events.t4889(c, b, create_listener_function, null)
     }());
     return!0
   }
@@ -21337,18 +21337,16 @@ domina.events.get_listeners = function(a, b) {
     return goog.events.getListeners(a, c, !1)
   }, domina.nodes.call(null, a))
 };
-var query_server = {core:{}};
-query_server.core.on_error = function(a) {
+var collector_admin = {core:{}};
+collector_admin.core.collectors = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY);
+collector_admin.core.on_error = function(a) {
   var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   a = cljs.core.get.call(null, b, "\ufdd0:status-text");
   b = cljs.core.get.call(null, b, "\ufdd0:status");
   return domina.log.call(null, cljs.core.format.call(null, "fetch updates error: %d %s", b, a))
 };
-query_server.core.validate_sql = function(a) {
-  return cljs.core.empty_QMARK_.call(null, a) ? (alert("sql\u4e0d\u80fd\u4e3a\u7a7a"), !1) : !0
-};
-query_server.core.format_titles = function(a) {
-  return clojure.string.join.call(null, "", function() {
+collector_admin.core.render_collectors_tbl = function(a) {
+  return clojure.string.join.call(null, "\n", function() {
     return function c(a) {
       return new cljs.core.LazySeq(null, !1, function() {
         for(;;) {
@@ -21359,8 +21357,8 @@ query_server.core.format_titles = function(a) {
               a: {
                 for(var k = 0;;) {
                   if(k < g) {
-                    var l = cljs.core._nth.call(null, f, k);
-                    cljs.core.chunk_append.call(null, h, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', l));
+                    var l = cljs.core._nth.call(null, f, k), m = l.call(null, "name"), n = l.call(null, "status"), p = l.call(null, "recent-sync"), q = l.call(null, "synced-data"), l = l.call(null, "url");
+                    cljs.core.chunk_append.call(null, h, cljs.core.format.call(null, "\x3ctr\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%d\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3c/tr\x3e", m, cljs.core.truth_(p) ? (new Date(p)).toISOString() : "", cljs.core.truth_(q) ? q : 0, n, cljs.core.truth_(l) ? l : ""));
                     k += 1
                   }else {
                     f = !0;
@@ -21371,8 +21369,13 @@ query_server.core.format_titles = function(a) {
               }
               return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), c.call(null, cljs.core.chunk_rest.call(null, e))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null)
             }
-            h = cljs.core.first.call(null, e);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', h), c.call(null, cljs.core.rest.call(null, e)))
+            m = cljs.core.first.call(null, e);
+            h = m.call(null, "name");
+            f = m.call(null, "status");
+            g = m.call(null, "recent-sync");
+            k = m.call(null, "synced-data");
+            m = m.call(null, "url");
+            return cljs.core.cons.call(null, cljs.core.format.call(null, "\x3ctr\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%d\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3ctd\x3e%s\x3c/td\x3e\x3c/tr\x3e", h, cljs.core.truth_(g) ? (new Date(g)).toISOString() : "", cljs.core.truth_(k) ? k : 0, f, cljs.core.truth_(m) ? m : ""), c.call(null, cljs.core.rest.call(null, e)))
           }
           return null
         }
@@ -21380,374 +21383,8 @@ query_server.core.format_titles = function(a) {
     }.call(null, a)
   }())
 };
-query_server.core.format_values = function(a) {
-  return clojure.string.join.call(null, "", function() {
-    return function c(a) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var e = cljs.core.seq.call(null, a);
-          if(e) {
-            var f = e;
-            if(cljs.core.chunked_seq_QMARK_.call(null, f)) {
-              var g = cljs.core.chunk_first.call(null, f), h = cljs.core.count.call(null, g), k = cljs.core.chunk_buffer.call(null, h);
-              return function() {
-                for(var a = 0;;) {
-                  if(a < h) {
-                    var c = cljs.core._nth.call(null, g, a);
-                    cljs.core.chunk_append.call(null, k, cljs.core.format.call(null, "\x3ctr\x3e%s\x3c/tr\x3e", clojure.string.join.call(null, "", function() {
-                      return function(a, c, d, e, f, g, h) {
-                        return function z(k) {
-                          return new cljs.core.LazySeq(null, !1, function(a, c, d, e, f, g, h) {
-                            return function() {
-                              for(;;) {
-                                var a = cljs.core.seq.call(null, k);
-                                if(a) {
-                                  if(cljs.core.chunked_seq_QMARK_.call(null, a)) {
-                                    var c = cljs.core.chunk_first.call(null, a), d = cljs.core.count.call(null, c), e = cljs.core.chunk_buffer.call(null, d);
-                                    a: {
-                                      for(var f = 0;;) {
-                                        if(f < d) {
-                                          var g = cljs.core._nth.call(null, c, f);
-                                          cljs.core.chunk_append.call(null, e, [cljs.core.str('\x3ctd align\x3d"right"\x3e'), cljs.core.str(g), cljs.core.str("\x3c/td\x3e")].join(""));
-                                          f += 1
-                                        }else {
-                                          c = !0;
-                                          break a
-                                        }
-                                      }
-                                      c = void 0
-                                    }
-                                    return c ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), z.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null)
-                                  }
-                                  e = cljs.core.first.call(null, a);
-                                  return cljs.core.cons.call(null, [cljs.core.str('\x3ctd align\x3d"right"\x3e'), cljs.core.str(e), cljs.core.str("\x3c/td\x3e")].join(""), z.call(null, cljs.core.rest.call(null, a)))
-                                }
-                                return null
-                              }
-                            }
-                          }(a, c, d, e, f, g, h), null)
-                        }
-                      }(a, c, g, h, k, f, e).call(null, c)
-                    }())));
-                    a += 1
-                  }else {
-                    return!0
-                  }
-                }
-              }() ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), c.call(null, cljs.core.chunk_rest.call(null, f))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), null)
-            }
-            var l = cljs.core.first.call(null, f);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, "\x3ctr\x3e%s\x3c/tr\x3e", clojure.string.join.call(null, "", function() {
-              return function(a, c, d) {
-                return function r(e) {
-                  return new cljs.core.LazySeq(null, !1, function(a, c, d) {
-                    return function() {
-                      for(;;) {
-                        var a = cljs.core.seq.call(null, e);
-                        if(a) {
-                          if(cljs.core.chunked_seq_QMARK_.call(null, a)) {
-                            var c = cljs.core.chunk_first.call(null, a), d = cljs.core.count.call(null, c), f = cljs.core.chunk_buffer.call(null, d);
-                            a: {
-                              for(var g = 0;;) {
-                                if(g < d) {
-                                  var h = cljs.core._nth.call(null, c, g);
-                                  cljs.core.chunk_append.call(null, f, [cljs.core.str('\x3ctd align\x3d"right"\x3e'), cljs.core.str(h), cljs.core.str("\x3c/td\x3e")].join(""));
-                                  g += 1
-                                }else {
-                                  c = !0;
-                                  break a
-                                }
-                              }
-                              c = void 0
-                            }
-                            return c ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), r.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), null)
-                          }
-                          f = cljs.core.first.call(null, a);
-                          return cljs.core.cons.call(null, [cljs.core.str('\x3ctd align\x3d"right"\x3e'), cljs.core.str(f), cljs.core.str("\x3c/td\x3e")].join(""), r.call(null, cljs.core.rest.call(null, a)))
-                        }
-                        return null
-                      }
-                    }
-                  }(a, c, d), null)
-                }
-              }(l, f, e).call(null, l)
-            }())), c.call(null, cljs.core.rest.call(null, f)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, a)
-  }())
-};
-query_server.core.format_table = function(a) {
-  var b = a.call(null, "titles");
-  a = a.call(null, "values");
-  return cljs.core.format.call(null, "\x3ctable\x3e\x3cthead\x3e%s\x3c/thead\x3e\x3ctbody\x3e%s\x3c/tbody\x3e\x3c/table\x3e", query_server.core.format_titles.call(null, b), query_server.core.format_values.call(null, a))
-};
-query_server.core.render_result = function(a) {
-  var b = a.call(null, "result");
-  cljs.core.truth_(b) && (b = query_server.core.format_table.call(null, b), domina.set_html_BANG_.call(null, domina.by_id.call(null, "result_tbl"), b));
-  b = a.call(null, "log");
-  if(cljs.core.truth_(b)) {
-    var c = domina.by_id.call(null, "log"), d = domina.value.call(null, c);
-    domina.set_value_BANG_.call(null, c, d + b)
-  }
-  b = a.call(null, "progress");
-  cljs.core.truth_(b) && (c = domina.by_id.call(null, "progress"), domina.set_attrs_BANG_.call(null, c, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:value", cljs.core.first.call(null, b), "\ufdd0:max", cljs.core.second.call(null, b)], !0)));
-  b = a.call(null, "error");
-  cljs.core.truth_(b) && (c = domina.by_id.call(null, "log"), domina.set_value_BANG_.call(null, c, b));
-  a = a.call(null, "status");
-  return cljs.core.truth_(a) ? cljs.core._EQ_.call(null, a, "running") : null
-};
-query_server.core.sniff_csv = function sniff_csv(b) {
-  return ajax.core.ajax_request.call(null, ajax.core.uri_with_params.call(null, b, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:timestamp", Date.now.call(null)], !0)), "HEAD", ajax.core.transform_opts.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:raw", "\ufdd0:handler", function() {
-    return domina.set_attr_BANG_.call(null, domina.by_id.call(null, "url"), "\ufdd0:href", b)
-  }, "\ufdd0:error-handler", function(c) {
-    c = cljs.core.seq_QMARK_.call(null, c) ? cljs.core.apply.call(null, cljs.core.hash_map, c) : c;
-    cljs.core.get.call(null, c, "\ufdd0:status");
-    return setTimeout(cljs.core.partial.call(null, sniff_csv, b), 1E3)
-  }], !0)))
-};
-query_server.core.fetch_result = function fetch_result(b) {
-  return ajax.core.GET.call(null, ajax.core.uri_with_params.call(null, cljs.core.format.call(null, "/sql/queries/%s/", b), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:timestamp", Date.now.call(null)], !0)), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:handler", function(c) {
-    return cljs.core.truth_(query_server.core.render_result.call(null, c)) ? setTimeout(cljs.core.partial.call(null, fetch_result, b), 1E3) : setTimeout(cljs.core.partial.call(null, query_server.core.sniff_csv, c.call(null, "url")), 1E3)
-  }, "\ufdd0:error-handler", query_server.core.on_error], !0))
-};
-query_server.core.submit_sql = function() {
-  var a = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "app"))), b = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "version"))), c = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "sql-input"))), d = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "db")));
-  return cljs.core.truth_(query_server.core.validate_sql.call(null, c)) ? ajax.core.POST.call(null, ajax.core.uri_with_params.call(null, "/sql/queries/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:query", c, "\ufdd0:app", a, "\ufdd0:version", b, "\ufdd0:db", d], !0)), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:handler", function(a) {
-    a = a.call(null, "id");
-    return cljs.core.truth_(a) ? (query_server.core.fetch_result.call(null, a), query_server.core.fetch_history.call(null)) : null
-  }, "\ufdd0:error-handler", function(a) {
-    var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
-    a = cljs.core.get.call(null, b, "\ufdd0:response");
-    b = cljs.core.get.call(null, b, "\ufdd0:status");
-    return alert(cljs.core.format.call(null, "error %d: %s", b, a))
-  }], !0)) : null
-};
-query_server.core.render_meta_table = function(a, b) {
-  var c = b.call(null, "name"), d = b.call(null, "columns"), e = b.call(null, "samples");
-  return cljs.core.format.call(null, "\n\x3ch6\x3e%s\x3c/h6\x3e\n\x3ctable\x3e\n\x3cthead\x3e\n\x3ctr\x3e%s\x3c/tr\x3e\n\x3ctr\x3e%s\x3c/tr\x3e\n\x3c/thead\x3e\n\x3ctbody\x3e\n%s\n\x3c/tbody\x3e\n\x3c/table\x3e\n", c, clojure.string.join.call(null, "", function() {
-    return function g(a) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var b = cljs.core.seq.call(null, a);
-          if(b) {
-            if(cljs.core.chunked_seq_QMARK_.call(null, b)) {
-              var c = cljs.core.chunk_first.call(null, b), d = cljs.core.count.call(null, c), e = cljs.core.chunk_buffer.call(null, d);
-              a: {
-                for(var p = 0;;) {
-                  if(p < d) {
-                    var q = cljs.core._nth.call(null, c, p);
-                    cljs.core.chunk_append.call(null, e, cljs.core.format.call(null, '\x3cth align\x3d"right"\x3e%s\x3c/th\x3e', q.call(null, "name")));
-                    p += 1
-                  }else {
-                    c = !0;
-                    break a
-                  }
-                }
-                c = void 0
-              }
-              return c ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), g.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null)
-            }
-            e = cljs.core.first.call(null, b);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3cth align\x3d"right"\x3e%s\x3c/th\x3e', e.call(null, "name")), g.call(null, cljs.core.rest.call(null, b)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, d)
-  }()), clojure.string.join.call(null, "", function() {
-    return function g(a) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var b = cljs.core.seq.call(null, a);
-          if(b) {
-            if(cljs.core.chunked_seq_QMARK_.call(null, b)) {
-              var c = cljs.core.chunk_first.call(null, b), d = cljs.core.count.call(null, c), e = cljs.core.chunk_buffer.call(null, d);
-              a: {
-                for(var p = 0;;) {
-                  if(p < d) {
-                    var q = cljs.core._nth.call(null, c, p);
-                    cljs.core.chunk_append.call(null, e, cljs.core.format.call(null, '\x3cth align\x3d"right"\x3e%s\x3c/th\x3e', q.call(null, "type")));
-                    p += 1
-                  }else {
-                    c = !0;
-                    break a
-                  }
-                }
-                c = void 0
-              }
-              return c ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), g.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null)
-            }
-            e = cljs.core.first.call(null, b);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3cth align\x3d"right"\x3e%s\x3c/th\x3e', e.call(null, "type")), g.call(null, cljs.core.rest.call(null, b)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, d)
-  }()), clojure.string.join.call(null, "\n", function() {
-    return function g(a) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var b = cljs.core.seq.call(null, a);
-          if(b) {
-            var c = b;
-            if(cljs.core.chunked_seq_QMARK_.call(null, c)) {
-              var d = cljs.core.chunk_first.call(null, c), e = cljs.core.count.call(null, d), p = cljs.core.chunk_buffer.call(null, e);
-              return function() {
-                for(var a = 0;;) {
-                  if(a < e) {
-                    var g = cljs.core._nth.call(null, d, a);
-                    cljs.core.chunk_append.call(null, p, cljs.core.format.call(null, "\x3ctr\x3e%s\x3c/tr\x3e", clojure.string.join.call(null, "", function() {
-                      return function(a, b, c, d, e, g, h) {
-                        return function x(k) {
-                          return new cljs.core.LazySeq(null, !1, function(a, b, c, d, e, g, h) {
-                            return function() {
-                              for(;;) {
-                                var a = cljs.core.seq.call(null, k);
-                                if(a) {
-                                  if(cljs.core.chunked_seq_QMARK_.call(null, a)) {
-                                    var b = cljs.core.chunk_first.call(null, a), c = cljs.core.count.call(null, b), d = cljs.core.chunk_buffer.call(null, c);
-                                    a: {
-                                      for(var e = 0;;) {
-                                        if(e < c) {
-                                          var g = cljs.core._nth.call(null, b, e);
-                                          cljs.core.chunk_append.call(null, d, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', g));
-                                          e += 1
-                                        }else {
-                                          b = !0;
-                                          break a
-                                        }
-                                      }
-                                      b = void 0
-                                    }
-                                    return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, d), x.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, d), null)
-                                  }
-                                  d = cljs.core.first.call(null, a);
-                                  return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', d), x.call(null, cljs.core.rest.call(null, a)))
-                                }
-                                return null
-                              }
-                            }
-                          }(a, b, c, d, e, g, h), null)
-                        }
-                      }(a, g, d, e, p, c, b).call(null, g)
-                    }())));
-                    a += 1
-                  }else {
-                    return!0
-                  }
-                }
-              }() ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, p), g.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, p), null)
-            }
-            var q = cljs.core.first.call(null, c);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, "\x3ctr\x3e%s\x3c/tr\x3e", clojure.string.join.call(null, "", function() {
-              return function(a, b, c) {
-                return function v(d) {
-                  return new cljs.core.LazySeq(null, !1, function(a, b, c) {
-                    return function() {
-                      for(;;) {
-                        var a = cljs.core.seq.call(null, d);
-                        if(a) {
-                          if(cljs.core.chunked_seq_QMARK_.call(null, a)) {
-                            var b = cljs.core.chunk_first.call(null, a), c = cljs.core.count.call(null, b), e = cljs.core.chunk_buffer.call(null, c);
-                            a: {
-                              for(var g = 0;;) {
-                                if(g < c) {
-                                  var h = cljs.core._nth.call(null, b, g);
-                                  cljs.core.chunk_append.call(null, e, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', h));
-                                  g += 1
-                                }else {
-                                  b = !0;
-                                  break a
-                                }
-                              }
-                              b = void 0
-                            }
-                            return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), v.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null)
-                          }
-                          e = cljs.core.first.call(null, a);
-                          return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e', e), v.call(null, cljs.core.rest.call(null, a)))
-                        }
-                        return null
-                      }
-                    }
-                  }(a, b, c), null)
-                }
-              }(q, c, b).call(null, q)
-            }())), g.call(null, cljs.core.rest.call(null, c)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, e)
-  }()))
-};
-query_server.core.render_meta_namespace = function(a, b) {
-  var c = b.call(null, "name"), d = b.call(null, "children"), e = function() {
-    if(cljs.core._EQ_.call(null, 5, a)) {
-      return"h5"
-    }
-    if(cljs.core._EQ_.call(null, 4, a)) {
-      return"h4"
-    }
-    if(cljs.core._EQ_.call(null, 3, a)) {
-      return"h3"
-    }
-    if(cljs.core._EQ_.call(null, 2, a)) {
-      return"h2"
-    }
-    if(cljs.core._EQ_.call(null, 1, a)) {
-      return"h1"
-    }
-    throw Error([cljs.core.str("No matching clause: "), cljs.core.str(a)].join(""));
-  }();
-  return cljs.core.format.call(null, "\x3c%s\x3e%s\x3c/%s\x3e%s", e, c, e, clojure.string.join.call(null, "", function() {
-    return function g(b) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var c = cljs.core.seq.call(null, b);
-          if(c) {
-            if(cljs.core.chunked_seq_QMARK_.call(null, c)) {
-              var d = cljs.core.chunk_first.call(null, c), e = cljs.core.count.call(null, d), n = cljs.core.chunk_buffer.call(null, e);
-              a: {
-                for(var p = 0;;) {
-                  if(p < e) {
-                    var q = cljs.core._nth.call(null, d, p);
-                    cljs.core.chunk_append.call(null, n, query_server.core.render_meta_node.call(null, a + 1, q));
-                    p += 1
-                  }else {
-                    d = !0;
-                    break a
-                  }
-                }
-                d = void 0
-              }
-              return d ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), g.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), null)
-            }
-            n = cljs.core.first.call(null, c);
-            return cljs.core.cons.call(null, query_server.core.render_meta_node.call(null, a + 1, n), g.call(null, cljs.core.rest.call(null, c)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, d)
-  }()))
-};
-query_server.core.render_meta_node = function(a, b) {
-  var c = b.call(null, "type");
-  if(cljs.core._EQ_.call(null, "table", c)) {
-    return query_server.core.render_meta_table.call(null, a, b)
-  }
-  if(cljs.core._EQ_.call(null, "namespace", c)) {
-    return query_server.core.render_meta_namespace.call(null, a, b)
-  }
-  throw Error([cljs.core.str("No matching clause: "), cljs.core.str(c)].join(""));
-};
-query_server.core.render_meta_top = function(a) {
-  return clojure.string.join.call(null, "", function() {
+collector_admin.core.render_cids = function(a) {
+  return clojure.string.join.call(null, "\n", function() {
     return function c(a) {
       return new cljs.core.LazySeq(null, !1, function() {
         for(;;) {
@@ -21758,8 +21395,8 @@ query_server.core.render_meta_top = function(a) {
               a: {
                 for(var k = 0;;) {
                   if(k < g) {
-                    var l = cljs.core._nth.call(null, f, k);
-                    cljs.core.chunk_append.call(null, h, query_server.core.render_meta_node.call(null, 1, l));
+                    var l = cljs.core._nth.call(null, f, k).call(null, "id");
+                    cljs.core.chunk_append.call(null, h, cljs.core.format.call(null, "\x3coption\x3e%s\x3c/option\x3e", l));
                     k += 1
                   }else {
                     f = !0;
@@ -21770,8 +21407,8 @@ query_server.core.render_meta_top = function(a) {
               }
               return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), c.call(null, cljs.core.chunk_rest.call(null, e))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null)
             }
-            h = cljs.core.first.call(null, e);
-            return cljs.core.cons.call(null, query_server.core.render_meta_node.call(null, 1, h), c.call(null, cljs.core.rest.call(null, e)))
+            h = cljs.core.first.call(null, e).call(null, "id");
+            return cljs.core.cons.call(null, cljs.core.format.call(null, "\x3coption\x3e%s\x3c/option\x3e", h), c.call(null, cljs.core.rest.call(null, e)))
           }
           return null
         }
@@ -21779,169 +21416,110 @@ query_server.core.render_meta_top = function(a) {
     }.call(null, a)
   }())
 };
-query_server.core.render_meta = function(a) {
-  a = query_server.core.render_meta_top.call(null, a);
-  return domina.set_html_BANG_.call(null, domina.by_id.call(null, "meta"), a)
+collector_admin.core.render_collectors = function(a) {
+  domina.set_html_BANG_.call(null, domina.by_id.call(null, "collectors"), collector_admin.core.render_collectors_tbl.call(null, a));
+  domina.set_html_BANG_.call(null, domina.by_id.call(null, "cids"), collector_admin.core.render_cids.call(null, a));
+  if(!cljs.core.empty_QMARK_.call(null, a)) {
+    var b = cljs.core.first.call(null, a), c = b.call(null, "name"), b = b.call(null, "url");
+    domina.set_value_BANG_.call(null, domina.by_id.call(null, "name"), c);
+    domina.set_value_BANG_.call(null, domina.by_id.call(null, "url"), cljs.core.truth_(b) ? b : "")
+  }
+  return cljs.core.reset_BANG_.call(null, collector_admin.core.collectors, a)
 };
-query_server.core.fetch_meta = function() {
-  return ajax.core.GET.call(null, "/sql/meta", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:handler", query_server.core.render_meta], !0))
+collector_admin.core.fetch_collectors = function() {
+  return ajax.core.GET.call(null, "collectors/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:handler", collector_admin.core.render_collectors, "\ufdd0:error-handler", collector_admin.core.on_error], !0))
 };
-query_server.core.render_saved_queries = function(a) {
-  return cljs.core.format.call(null, '\n\x3ctable\x3e\n\x3cthead\x3e\x3ctr\x3e\n\x3cth align\x3d"left"\x3ename\x3c/th\x3e\n\x3cth align\x3d"left"\x3eapp\x3c/th\x3e\n\x3cth align\x3d"left"\x3eversion\x3c/th\x3e\n\x3cth align\x3d"left"\x3edb\x3c/th\x3e\n\x3cth align\x3d"left"\x3equery\x3c/th\x3e\n\x3c/tr\x3e\x3c/thead\x3e\n\x3ctbody\x3e%s\x3c/tbody\x3e\n\x3c/table\x3e\n', clojure.string.join.call(null, "", function() {
-    return function c(a) {
-      return new cljs.core.LazySeq(null, !1, function() {
-        for(;;) {
-          var e = cljs.core.seq.call(null, a);
-          if(e) {
-            if(cljs.core.chunked_seq_QMARK_.call(null, e)) {
-              var f = cljs.core.chunk_first.call(null, e), g = cljs.core.count.call(null, f), h = cljs.core.chunk_buffer.call(null, g);
-              a: {
-                for(var k = 0;;) {
-                  if(k < g) {
-                    var l = cljs.core._nth.call(null, f, k);
-                    cljs.core.chunk_append.call(null, h, cljs.core.format.call(null, '\x3ctr\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3c/tr\x3e', l.call(null, "name"), l.call(null, "app"), l.call(null, "version"), l.call(null, "db"), l.call(null, "query")));
-                    k += 1
-                  }else {
-                    f = !0;
-                    break a
-                  }
-                }
-                f = void 0
-              }
-              return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), c.call(null, cljs.core.chunk_rest.call(null, e))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null)
-            }
-            h = cljs.core.first.call(null, e);
-            return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3ctr\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3ctd align\x3d"left"\x3e%s\x3c/td\x3e\x3c/tr\x3e', h.call(null, "name"), h.call(null, "app"), h.call(null, "version"), h.call(null, "db"), h.call(null, "query")), c.call(null, cljs.core.rest.call(null, e)))
-          }
-          return null
-        }
-      }, null)
-    }.call(null, a)
-  }()))
-};
-query_server.core.saved_queries = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY);
-query_server.core.fetch_saved_queries = function() {
-  return ajax.core.GET.call(null, "/sql/saved/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
-    cljs.core.reset_BANG_.call(null, query_server.core.saved_queries, a);
-    a = query_server.core.render_saved_queries.call(null, a);
-    return domina.set_html_BANG_.call(null, domina.by_id.call(null, "saved_queries"), a)
-  }], !0))
-};
-query_server.core.save_sql = function() {
-  var a = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "query_name"))), b = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "app"))), c = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "version"))), d = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "db"))), e = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "sql-input")));
-  return ajax.core.POST.call(null, ajax.core.uri_with_params.call(null, "/sql/saved/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:name", a, "\ufdd0:app", b, "\ufdd0:version", c, "\ufdd0:db", d, "\ufdd0:query", e], !0)), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
-    return query_server.core.fetch_saved_queries.call(null)
-  }, "\ufdd0:error-handler", function(a) {
-    a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
-    a = cljs.core.get.call(null, a, "\ufdd0:response");
-    return alert([cljs.core.str("duplicated name: "), cljs.core.str(a)].join(""))
-  }], !0))
-};
-query_server.core.delete_sql = function() {
-  var a = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "query_name"))), b = function() {
-    return function(a) {
-      return function e(b) {
-        return new cljs.core.LazySeq(null, !1, function(a) {
+collector_admin.core.change_collector = function() {
+  var a = domina.by_id.call(null, "cids"), b = a.selectedIndex, c = a.item(b), d = domina.text.call(null, c) | 0, e = function() {
+    return function(a, b, c, d) {
+      return function n(e) {
+        return new cljs.core.LazySeq(null, !1, function(a, b, c, d) {
           return function() {
-            for(var c = b;;) {
-              if(c = cljs.core.seq.call(null, c)) {
-                if(cljs.core.chunked_seq_QMARK_.call(null, c)) {
-                  var k = cljs.core.chunk_first.call(null, c), l = cljs.core.count.call(null, k), m = cljs.core.chunk_buffer.call(null, l);
+            for(var a = e;;) {
+              if(a = cljs.core.seq.call(null, a)) {
+                if(cljs.core.chunked_seq_QMARK_.call(null, a)) {
+                  var b = cljs.core.chunk_first.call(null, a), c = cljs.core.count.call(null, b), f = cljs.core.chunk_buffer.call(null, c);
                   a: {
-                    for(var n = 0;;) {
-                      if(n < l) {
-                        var p = cljs.core._nth.call(null, k, n), q = p.call(null, "name");
-                        cljs.core._EQ_.call(null, q, a) && cljs.core.chunk_append.call(null, m, p.call(null, "id"));
-                        n += 1
+                    for(var g = 0;;) {
+                      if(g < c) {
+                        var h = cljs.core._nth.call(null, b, g);
+                        cljs.core._EQ_.call(null, d, h.call(null, "id")) && cljs.core.chunk_append.call(null, f, h);
+                        g += 1
                       }else {
-                        k = !0;
+                        b = !0;
                         break a
                       }
                     }
-                    k = void 0
+                    b = void 0
                   }
-                  return k ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, m), e.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, m), null)
+                  return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), n.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), null)
                 }
-                m = cljs.core.first.call(null, c);
-                k = m.call(null, "name");
-                if(cljs.core._EQ_.call(null, k, a)) {
-                  return cljs.core.cons.call(null, m.call(null, "id"), e.call(null, cljs.core.rest.call(null, c)))
+                f = cljs.core.first.call(null, a);
+                if(cljs.core._EQ_.call(null, d, f.call(null, "id"))) {
+                  return cljs.core.cons.call(null, f, n.call(null, cljs.core.rest.call(null, a)))
                 }
-                c = cljs.core.rest.call(null, c)
+                a = cljs.core.rest.call(null, a)
               }else {
                 return null
               }
             }
           }
-        }(a), null)
+        }(a, b, c, d), null)
       }
-    }(a).call(null, cljs.core.deref.call(null, query_server.core.saved_queries))
+    }(a, b, c, d).call(null, cljs.core.deref.call(null, collector_admin.core.collectors))
   }();
-  return cljs.core.empty_QMARK_.call(null, b) ? null : ajax.core.ajax_request.call(null, cljs.core.format.call(null, "/sql/saved/%d/", cljs.core.first.call(null, b)), "DELETE", ajax.core.transform_opts.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
-    domina.log.call(null, "OK", a);
-    return query_server.core.fetch_saved_queries.call(null)
+  if(cljs.core.empty_QMARK_.call(null, e)) {
+    return alert("no collector")
+  }
+  var f = cljs.core.first.call(null, e), e = f.call(null, "name"), f = f.call(null, "url");
+  domina.set_value_BANG_.call(null, domina.by_id.call(null, "name"), e);
+  return domina.set_value_BANG_.call(null, domina.by_id.call(null, "url"), cljs.core.truth_(f) ? f : "")
+};
+collector_admin.core.add_collector = function() {
+  var a = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "name"))), b = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "url")));
+  return cljs.core.truth_(cljs.core.truth_(a) ? b : a) ? ajax.core.POST.call(null, ajax.core.uri_with_params.call(null, "collectors/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:name", a, "\ufdd0:url", b], !0)), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:raw", "\ufdd0:handler", function(a) {
+    domina.log.call(null, a);
+    return collector_admin.core.fetch_collectors.call(null)
   }, "\ufdd0:error-handler", function(a) {
     var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
     a = cljs.core.get.call(null, b, "\ufdd0:response");
     var e = cljs.core.get.call(null, b, "\ufdd0:status-text"), b = cljs.core.get.call(null, b, "\ufdd0:status");
-    domina.log.call(null, "FAILED", e);
-    alert(cljs.core.format.call(null, "%d: %s", b, a));
-    return query_server.core.fetch_saved_queries.call(null)
+    domina.log.call(null, e);
+    return alert(cljs.core.format.call(null, "error %d: %s", b, a))
+  }], !0)) : null
+};
+collector_admin.core.del_collector = function() {
+  var a = domina.by_id.call(null, "cids"), a = a.item(a.selectedIndex), a = domina.text.call(null, a);
+  return ajax.core.ajax_request.call(null, cljs.core.format.call(null, "collectors/%s", a), "DELETE", ajax.core.transform_opts.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
+    domina.log.call(null, a);
+    return collector_admin.core.fetch_collectors.call(null)
+  }, "\ufdd0:error-handler", function(a) {
+    var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+    a = cljs.core.get.call(null, c, "\ufdd0:response");
+    var d = cljs.core.get.call(null, c, "\ufdd0:status-text"), c = cljs.core.get.call(null, c, "\ufdd0:status");
+    domina.log.call(null, d);
+    return alert(cljs.core.format.call(null, "error %d: %s", c, a))
   }], !0)))
 };
-query_server.core.fetch_history = function() {
-  return ajax.core.GET.call(null, ajax.core.uri_with_params.call(null, "/sql/queries/", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:timestamp", Date.now.call(null)], !0)), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
-    return domina.set_html_BANG_.call(null, domina.by_id.call(null, "history"), cljs.core.format.call(null, '\n\x3ctable\x3e\n\x3cthead\x3e\x3ctr\x3e\n\x3cth align\x3d"right"\x3equery\x3c/th\x3e\n\x3cth align\x3d"right"\x3estatus\x3c/th\x3e\n\x3cth align\x3d"right"\x3eduration\x3c/th\x3e\n\x3cth align\x3d"right"\x3esubmit time\x3c/th\x3e\n\x3cth align\x3d"url"\x3eurl\x3c/th\x3e\n\x3c/tr\x3e\x3c/thead\x3e\n\x3ctbody\x3e\n%s\n\x3c/tbody\x3e\n\x3c/table\x3e\n', clojure.string.join.call(null, "\n", function() {
-      return function c(a) {
-        return new cljs.core.LazySeq(null, !1, function() {
-          for(;;) {
-            var e = cljs.core.seq.call(null, a);
-            if(e) {
-              if(cljs.core.chunked_seq_QMARK_.call(null, e)) {
-                var f = cljs.core.chunk_first.call(null, e), g = cljs.core.count.call(null, f), h = cljs.core.chunk_buffer.call(null, g);
-                a: {
-                  for(var k = 0;;) {
-                    if(k < g) {
-                      var l = cljs.core._nth.call(null, f, k), m = l.call(null, "query"), n = l.call(null, "status"), p = l.call(null, "submit-time"), q = l.call(null, "duration"), l = l.call(null, "url");
-                      cljs.core.chunk_append.call(null, h, cljs.core.format.call(null, '\x3ctr\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3c/tr\x3e', m, n, q, (new Date(p)).toISOString(), l));
-                      k += 1
-                    }else {
-                      f = !0;
-                      break a
-                    }
-                  }
-                  f = void 0
-                }
-                return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), c.call(null, cljs.core.chunk_rest.call(null, e))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null)
-              }
-              m = cljs.core.first.call(null, e);
-              h = m.call(null, "query");
-              f = m.call(null, "status");
-              g = m.call(null, "submit-time");
-              k = m.call(null, "duration");
-              m = m.call(null, "url");
-              return cljs.core.cons.call(null, cljs.core.format.call(null, '\x3ctr\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3ctd align\x3d"right"\x3e%s\x3c/td\x3e\x3c/tr\x3e', h, f, k, (new Date(g)).toISOString(), m), c.call(null, cljs.core.rest.call(null, e)))
-            }
-            return null
-          }
-        }, null)
-      }.call(null, a)
-    }())))
+collector_admin.core.edit_collector = function() {
+  var a = domina.by_id.call(null, "cids"), a = a.item(a.selectedIndex), a = domina.text.call(null, a), b = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "name"))), c = clojure.string.trim.call(null, domina.value.call(null, domina.by_id.call(null, "url")));
+  return null == b ? alert("missing name") : null == c ? alert("missing url") : ajax.core.ajax_request.call(null, cljs.core.format.call(null, "collectors/%s", a), "PUT", ajax.core.transform_opts.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:params", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:name", b, "\ufdd0:url", c], !0), "\ufdd0:format", "\ufdd0:json", "\ufdd0:response-format", "\ufdd0:json", "\ufdd0:handler", function(a) {
+    domina.log.call(null, a);
+    return collector_admin.core.fetch_collectors.call(null)
   }, "\ufdd0:error-handler", function(a) {
     var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
-    a = cljs.core.get.call(null, b, "\ufdd0:status-text");
-    b = cljs.core.get.call(null, b, "\ufdd0:status");
+    a = cljs.core.get.call(null, b, "\ufdd0:response");
+    var c = cljs.core.get.call(null, b, "\ufdd0:status-text"), b = cljs.core.get.call(null, b, "\ufdd0:status");
+    domina.log.call(null, c);
     return alert(cljs.core.format.call(null, "error %d: %s", b, a))
-  }], !0))
+  }], !0)))
 };
-query_server.core.on_load = function() {
-  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "submit-sql"), "\ufdd0:click", query_server.core.submit_sql);
-  domina.set_value_BANG_.call(null, domina.by_id.call(null, "log"), "");
-  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "add"), "\ufdd0:click", query_server.core.save_sql);
-  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "delete"), "\ufdd0:click", query_server.core.delete_sql);
-  query_server.core.fetch_meta.call(null);
-  query_server.core.fetch_saved_queries.call(null);
-  return query_server.core.fetch_history.call(null)
+collector_admin.core.on_load = function() {
+  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "cids"), "\ufdd0:change", collector_admin.core.change_collector);
+  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "add"), "\ufdd0:click", collector_admin.core.add_collector);
+  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "delete"), "\ufdd0:click", collector_admin.core.del_collector);
+  domina.events.listen_BANG_.call(null, domina.by_id.call(null, "edit"), "\ufdd0:click", collector_admin.core.edit_collector);
+  return collector_admin.core.fetch_collectors.call(null)
 };
-goog.exportSymbol("query_server.core.on_load", query_server.core.on_load);
+goog.exportSymbol("collector_admin.core.on_load", collector_admin.core.on_load);
 

@@ -8,6 +8,7 @@
     [ring "1.2.0"]
     [compojure "1.1.5"]
     [korma "0.3.0-RC5"]
-    [org.clojure/data.json "0.2.3"]]
+    [org.clojure/data.json "0.2.3"]
+    [slingshot "0.10.3"]]
   :main query-server.main
   :aot [query-server.main])
