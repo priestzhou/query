@@ -163,7 +163,7 @@
 (defn render-meta-table [lvl node]
     (let [
         name (node "name")
-        ys (node "columns")
+        ys (node "children")
         samples (node "samples")
         ]
         (format "

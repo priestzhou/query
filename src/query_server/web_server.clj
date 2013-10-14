@@ -233,7 +233,7 @@
                                             {
                                                 :type "table"
                                                 :name "smile"
-                                                :columns [
+                                                :children [
                                                     {
                                                         :name "item"
                                                         :type "varchar(255)"

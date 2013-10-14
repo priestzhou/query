@@ -21526,7 +21526,7 @@ query_server.core.submit_sql = function() {
   }], !0)) : null
 };
 query_server.core.render_meta_table = function(a, b) {
-  var c = b.call(null, "name"), d = b.call(null, "columns"), e = b.call(null, "samples");
+  var c = b.call(null, "name"), d = b.call(null, "children"), e = b.call(null, "samples");
   return cljs.core.format.call(null, "\n\x3ch6\x3e%s\x3c/h6\x3e\n\x3ctable\x3e\n\x3cthead\x3e\n\x3ctr\x3e%s\x3c/tr\x3e\n\x3ctr\x3e%s\x3c/tr\x3e\n\x3c/thead\x3e\n\x3ctbody\x3e\n%s\n\x3c/tbody\x3e\n\x3c/table\x3e\n", c, clojure.string.join.call(null, "", function() {
     return function g(a) {
       return new cljs.core.LazySeq(null, !1, function() {
