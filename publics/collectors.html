@@ -4,9 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>datawize</title>
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
-	<link rel="stylesheet" href="css/codemirror.css" type="text/css" media="all"/>	
-	<link rel="stylesheet" href="css/zTreeStyle.css" type="text/css" media="all"/>
-	<link rel="stylesheet" href="css/tabs.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/jquery.dataTables.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/boxy.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/common.css" type="text/css" media="all"/>		
@@ -56,57 +53,21 @@
 
 	<div class="container">
 			<div class="sqlBread boxShadowStyle">
-				<a href="#">数据查询</a><span class="sqlIcon breadIcon"></span><a class="current" href="#">查询操作</a>
+				<a href="#">数据收集器</a>
 			</div>
 
-		<div class="row sqlRow">
-			<div class="span3 sqlSider">
-				<p class="treeOp">
-					<a class="treeDown" href="javascript:void(0);"><span class="sqlSIcon addIcon"></span>全部展开</a></li>
-					<a class="treeUp" href="javascript:void(0);"><span class="sqlSIcon delIcon"></span>全部收缩</a>
-				</p>
-
-				<ul id="sqlTree" class="ztree">
-					
-				</ul>
-			</div>
-			<div class="span9 sqlMain">
-				
-
-				<div id="sqlTab" class="tabs">
-				<div class="sqlTabControl">
-					<div class="btn-group">
-						<a href="#" data-toggle="dropdown" class="sqlIcon tabOpIcon tabOp">
-						</a>
-						<ul class="dropdown-menu tabOpMenu">
-							<li>
-								<a class="delTabs" href="#">关闭全部</a>
-							</li>
-							<li>
-								<a class="addNew" href="#">打开新工作区</a>
-							</li>
-
-						</ul>
-					</div>
-				</div>
-				</div><!-- sqlTab -->
 
 
-
-				
-	
-			</div><!-- sqlMain -->
-		</div>
-		
 
 		<!-- sqlTable start-->
 	<div class="sqlRTable">	
-		<p class="sqlDownloadWrap">
-			<a class="btn_green" id="sqlDownload" href="#" data-toggle="tooltip">下载查询结果</a>
+		<p class="sqlDownloadWrap sqlCollectors">
+			<a id="addCollectors" href="#" class="btn_blue">添加数据收集器</a>
+			<a id="checkCollectors" href="history.html" target="_blank" class="btn_blue">查看历史操作</a>
 		</p>
 
 
-		<div id="sqlTableWrap">
+		<div id="sqlTableWrap" class="colTable">
 		</div>
 	</div>	
 		<!-- sqlTable end-->
@@ -129,53 +90,15 @@
 	<script src="js/jquery.tooltips.js" language="javascript"></script>
 	<script src="js/common.js" language="javascript"></script>	
 	<script src="js/query.js" language="javascript"></script>	
+	<script src="js/collectors.js" language="javascript"></script>	
 <script>
 
 
 $(function(){		
-	Query.init();
+	Collectors.init();
 })
 </script>
 
-<!-- <div id="pop">
-	<table cellpadding="0" cellspacing="0" border="0" id="popGrid"></table>	
-</div> -->
-<div id="sqlTabCon" style="display:none">	
 
-					<select class="select_pro">
-						<option>产品</option>
-					</select>
-					<select class="select_ver">
-						<option>版本</option>
-					</select>
-					<a href="javascript:void(0);" class="sqlSelect btn_blue vm" data-loading-text="正在查询">提交查询</a>
-					<a class="sqlSave vm" href="javascript:void(0);"> <span class="sqlSIcon sqlCommonIcon"></span>
-						保存为常用查询
-					</a>
-					<a class="openCommon vm" href="#"> <span class="sqlSIcon oCommonIcon"></span>
-						打开常用查询
-					</a>
-					<a class="openHistory vm" href="#">
-						<span class="sqlSIcon oHIcon"></span>
-						打开历史查询
-					</a>
-
-					<div class="sqlBoxDiv">
-						<textarea rows="10" id="sqlBox" class="sqlArea"></textarea>
-					</div>
-					<!-- sqlBoxDiv -->					
-					<div class="sqlTime"></div>
-					<div class="progress progress-striped active" style="margin-left:10px;margin-right:10px">
-						<div class="bar" style="width: 0;"></div>
-					</div>
-
-					<div class="sqlLogWrap">
-						<div class="sqlLogLink">日志<a href="#"><span class="sqlSIcon logIcon"></span><strong>收起日志</strong></a>
-						</div>
-						<div class="sqlLog">
-								
-						</div>
-					</div>					
-</div>
 </body>
 </html>

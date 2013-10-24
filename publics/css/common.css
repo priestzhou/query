@@ -1,0 +1,526 @@
+body{
+	background: #fff;
+	font-size: 12px;
+}
+p{
+	margin:0;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+/* a:active,a:focus{
+	text-decoration: none;
+} */
+/*-----clearFix-----*/
+.clearFix:after{
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	content: ".";
+}
+.clearFix{ display: inline-block; }
+/* Hides from IE 4-6 \*/
+* html .clearFix{ height: 1%; }
+.clearFix{ display: block; } 
+/* End hide from IE 4-6 */
+.w1000-auto{
+	width: 1000px;
+	margin: 0 auto;
+}
+.sqlBar{
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	color: #d8d8d8;
+	padding:0 20px 3px 0;
+	background: #230c1a url(../img/top.jpg) no-repeat 50% 0;	
+}
+.sqlBar a{
+	color: #d8d8d8;
+	margin-right: 5px;
+	display: inline-block;
+}
+.sqlBar a span{
+	width: 20px;
+	height: 22px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 3px;	
+}
+.sqlBar .loginInfo{
+	color: #b8b8b8;
+	display: inline-block;
+}
+.sqlIcon{
+	background-image: url(../img/icon.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+.sqlSIcon{
+	background-image: url(../img/icon_small.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+.logoIcon{
+	background-position: -382px 0;
+	width: 188px;
+	height: 36px;
+	margin: 10px 0 0 0;
+}
+.selectIcon{
+	background-position: -51px -71px;
+	width: 47px;
+	height: 30px;
+	vertical-align: middle;	
+}
+.topMenu1:hover .selectIcon{
+	background-position: -51px -102px;
+}
+
+.downIcon{
+	background-position: -211px -160px;
+	width: 18px;
+	height: 18px;
+}
+.topMenu1:hover .downIcon{
+	background-position: -211px -147px;
+}
+.dbIcon{
+	background-position: -7px -71px;
+	width: 44px;
+	height: 30px;
+	vertical-align: middle;
+}
+.breadIcon{
+	background-position: -174px -196px;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+}
+.homeIcon{
+	background-position: -19px -16px;
+}
+.loginOutIcon{
+	background-position: -108px -16px;
+}
+.myIcon{
+	background-position: -211px -16px;
+}
+.helpIcon{
+	background-position: -310px -16px;
+}
+.sqlBar a:hover span{
+	color: #fff;
+}
+.sqlBar a:hover .homeIcon{
+	background-position: -19px -46px;
+}
+.sqlBar a:hover .loginOutIcon{
+	background-position: -108px -46px;
+}
+.sqlBar a:hover .myIcon{
+	background-position: -211px -46px;
+}
+.sqlBar a:hover .helpIcon{
+	background-position: -310px -46px;
+}
+.addIcon{
+	background-position: -7px 1px;
+}
+.delIcon{
+	background-position: -7px -41px;
+}
+a:hover .addIcon{
+	background-position: -125px 1px;
+} 
+a:hover .delIcon{
+	background-position: -125px -41px;
+} 
+.tabOpIcon{
+	width: 30px;
+	height: 25px;
+	margin-top: 3px;
+	background-position: -98px -147px;
+}
+.tabOpIcon:hover{
+	background-position: -98px -178px;
+}
+.sqlCommonIcon{
+	background-position: -6px -407px;
+}
+.oCommonIcon{
+	background-position: -6px -453px;
+}
+.oHIcon{
+	background-position: -6px -500px;	
+
+}
+.selectTen{
+	background-position: -6px -356px;
+}
+a.selectTenL:hover .selectTen{
+	background-position: -126px -356px;
+}
+.ztree li a.selectTenL{
+	margin-left: 5px;
+}
+.tipIcon{
+    background-position: -21px -238px;
+    height: 43px;
+    margin: -21px 10px 0 0;
+    vertical-align: top;
+    width: 45px;
+}
+.sqlLogLink a{
+	position: absolute;
+	right: 0;
+	margin:0;
+	top: 0;	
+	cursor: pointer;
+	text-decoration: underline;
+	color: #288db0;
+}
+.logIcon{
+	background-position: -6px -674px;
+	height: 23px;
+	width: 20px;
+
+}
+a:hover .logIcon{
+	background-position: -124px -674px;
+}
+a.active .logIcon{
+	background-position: -6px -704px;
+}
+a.active:hover .logIcon{
+	background-position: -124px -704px;
+}
+.topMenu2:hover .dbIcon{
+	background-position: -7px -100px;
+}
+.sqlHeader{
+	height: 53px;
+	background-color: #e9f1f3;	
+}
+.sqlHeader .row-fluid{
+/* 	width: 1000px;
+margin: 0 auto; */
+}
+.topMenu1,.topMenu2{
+	display: block;
+	font-size: 20px;
+	padding-top: 14px;
+	color:#777;
+	font-weight: bold;
+}
+.topMenu1:hover,.topMenu2:hover{
+	text-decoration: none;
+	color: #1b9abb;
+}
+
+.sqlBread{
+	border-left: 4px solid #de8533;
+	border-bottom: 1px solid #D4D8DB;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+.sqlBread a{
+	color: #333;
+	border-bottom: 1px dotted #333;
+}
+.sqlBread a.current{
+	color: #dc3721;
+	border: none;
+	cursor: default;
+}
+.sqlBread a:hover{
+	text-decoration: none;
+}
+.treeOp{
+	padding-left: 10px;
+	height: 35px;
+	line-height: 35px;
+	margin:0;
+	border-bottom:1px solid #D4D8DB;
+}
+.treeOp a{
+	color: #dc8633;
+}
+.sqlTabControl{
+	width: 30px;
+	float: left;
+	position: absolute;
+	margin-left: 3px;
+}
+.tabOpMenu{
+	border:1px solid #666;
+	top: 26px;
+	left: 1px;
+}
+.tabOpMenu a:hover{
+	background: #666!important;
+}
+
+
+.boxShadowStyle{
+  -webkit-box-shadow: 0 5px 5px #d7d7d7;
+     -moz-box-shadow: 0 5px 5px #d7d7d7;
+          box-shadow: 0 5px 5px #d7d7d7;
+}
+[class*="span"]{
+	margin-left: 0;
+}
+
+.table-bordered{
+	border-radius: 0;
+	border-collapse:collapse;
+}
+#sqlBox{
+	width: 100%;
+	border-radius: 0;
+	border:none;
+	padding: 0;
+	margin:0;
+	box-shadow:none;
+}
+
+.sqlMain{
+	width: 100%;
+	padding-top: 10px;
+	height: 495px;
+/* 	overflow: hidden; */
+}
+.sqlRow{
+	padding-left: 220px;
+	border-bottom: 1px solid #d4d8db;	
+}
+.sqlSider{
+	margin-left: -221px;
+	height: 538px;
+	border-right:1px solid #D4D8DB;
+}
+#sqlTree{
+	height: 492px;
+	overflow: auto;
+	background: #f3f3f3;
+}
+.container{
+/* 	width:1000px;
+margin: 0 auto; */
+	width: auto;
+	border-left: 1px solid #d4d8db;
+	border-right: 1px solid #d4d8db;
+	padding-bottom: 10px;
+}
+.sqlBoxDiv{
+	border:1px solid #CCC;
+	padding: 4px 6px;
+	margin-bottom: 5px;
+}
+[class^="icon-"], [class*=" icon-"]{
+	background-image: url("http://qinliang760.github.io/cdn/img/glyphicons-halflings.png");
+}
+.tooltip-inner a{
+	color: #333;
+}
+.tooltip-inner a:hover{
+	text-decoration: underline;
+}
+
+#sqlDownload{
+	/* display: none; */
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.sqlDownloadWrap{
+	padding:10px;
+	display: none;
+	position: absolute;
+	z-index: 2;
+/* 	border-bottom: 1px solid #D4D8DB; */
+}
+.sqlCollectors{
+	display: block;
+}
+
+#titleTip{
+position:absolute;
+width:140px;
+z-index:9999;
+background:#fbffbf;
+padding:5px;
+color:#5f5f5f;
+line-height:normal;
+}
+
+.floatL{
+	float: left;
+}
+.floatR{
+	float: right;
+}
+
+
+
+#footer{
+	height: 47px;
+	line-height: 47px;
+	background-color: #090909;
+	text-align: center;
+}
+
+
+.btn_green{
+	height: 20px;
+	line-height: 20px;
+	background-color: #76b94f;
+	color: #fefeff;
+	border: 1px solid #f3f3f3;
+	display: inline-block;
+	text-align: center;
+	padding: 2px 5px;
+}
+.btn_blue,.answers input{
+	height: 20px;
+	line-height: 20px;
+	background-color: #51b2d3;
+	color: #fefeff;
+	border: 1px solid #449bb7;
+	display: inline-block;
+	text-align: center;
+	padding: 2px 5px;	
+}
+.answers input{
+	padding:0 20px;
+}
+.btn_blue:hover{
+	background-color:#55a7f4;
+	border-color: #3992ec;
+	text-decoration: none; 
+}
+
+
+
+.sqlLogWrap{
+	padding:0 10px;
+}
+.sqlLogWrap .sqlLog{
+	padding: 9px 15px;
+	height: 130px;
+	overflow: auto;
+
+}
+.sqlLogLink{
+	display: block;
+	padding:5px 15px;
+	position: relative;
+	border-bottom: 1px solid #D4D8DB;
+	color: #0088cc;
+	font-weight: bold;	
+}
+a.sqlLogLink{
+	text-decoration: none;
+}
+.progress{
+	display: none;
+}
+
+#popGrid{
+	width: 700px;
+}
+#popGrid thead th{
+	background: #4a9ff0;
+	border:1px solid #2e83e0;
+	color: #fff;
+	font-weight: bold;
+	text-align: left;
+/* 	width: 20%!important; */
+}
+#pop{
+	height: 400px;
+	width: 900px;
+}
+#popGrid td{
+/* 	width: 20%!important; */
+	border:1px solid #d3d8db;
+}
+.dataTables_wrapper{
+/* 	height: 400px; */	
+}
+#pop th{
+	background: #4a9ff0;
+	border:1px solid #2e83e0;
+	color: #fff;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+/* 	width: 20%!important; */
+}
+.vm{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sqlSave,.openCommon,.openHistory{
+	padding-top: 3px;
+	margin-left: 15px;
+
+}
+#sqlSelect{
+	margin-left: 15px;
+}
+.sqlTime{
+	padding:5px 15px;
+}
+#sqlTableWrap{
+	padding-top: 7px;
+
+}
+#sqlTable th{
+	border:1px solid #6ba846;
+	text-align: left;
+	color: #fff;
+	font-weight: bold;
+}
+#sqlTable td{
+	border:1px solid #d3d8db;
+}
+
+.boxy-wrapper .title-bar h2{
+	color: #435059;
+	font-weight: bold;
+}
+.sqlRTable{
+	position: relative;
+}
+table.dataTable{
+	margin-bottom: 10px;
+}
+#sqlSaveBtn{
+	width: 100px;
+	margin:0 auto;
+	display: block;
+}
+
+.dataTables_scrollHeadInner{
+	height: 28px;
+}
+
+#sqlTableWrap.colTable th{
+    background: none repeat scroll 0 0 #4A9FF0;
+    border: 1px solid #2E83E0;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+}
+.dataTables_scroll{
+	overflow: auto;
+}
