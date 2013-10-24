@@ -709,10 +709,12 @@ var params={
           for (var j=0,l=data.length;j<l;j++){
               titles[j]=[];
               v[j]=[];
-              if(data[j]["status"]==1){
+              if(data[j]["status"]=="succeeded"){
                 data[j]["status"]="成功";
-              }else{
+              } else if (data[j]["status"]=="failed"){
                 data[j]["status"]="失败";
+              } else {
+                data[j]["status"]="运行中";
               }
               //data[j]["submit-time"]=Common.formatTime(data[j]["submit-time"]);
               for (var i in data[j]){
@@ -724,7 +726,17 @@ var params={
                   delete data[j][i];
                 }else{
                   titles[j].push(i);
-                  v[j].push(data[j][i]);                  
+                  if (i=="status") {
+                    if (data[j][i]=="succeeded") {
+                      v[j].push("成功");
+                    } else if (data[j][i]=="failed") {
+                      v[j].push("失败");
+                    } else {
+                      v[j].push("运行中");
+                    }
+                  } else {
+                    v[j].push(data[j][i]);
+                  }
                 }
 
               }
