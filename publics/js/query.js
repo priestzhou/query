@@ -1,4 +1,18 @@
 
+function quote(s) {
+  var res = "`";
+  for (var i = 0, l = s.length; i < l; ++i) {
+    var c = s[i];
+    if (c == "`") {
+      res += "``";
+    } else {
+      res += c;
+    }
+  }
+  res += "`";
+  return res;
+}
+
 var Query = {
   init: function() {
     //Common.isLogin();
@@ -102,7 +116,7 @@ var Query = {
             app=ver.getParentNode(),
             verName=ver.name,
             appName=app.name;                        
-            var html = "`"+appName+"`.`"+verName+"`.`"+name+"`";//'select * from '
+            var html = quote(appName) + "." + quote(verName) + "." + quote(name);
             //Query.setAddTabs(Query.tabs,html);
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);           
@@ -113,7 +127,7 @@ var Query = {
             var pNode = t[0].getParentNode(),
                 ver=pNode.getParentNode(),
                 app=ver.getParentNode(),
-                html = "`"+app.name+"`.`"+ver.name+"`.`"+pNode.name+"`.`"+name+"`";// + ' from ' + pNode.name
+                html = quote(app.name) + "." + quote(ver.name) + "." + quote(pNode.name) + "." + quote(name);
             //Query.setAddTabs(Query.tabs,html);
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);
