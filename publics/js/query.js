@@ -376,10 +376,14 @@ var params={
     }
   },
   setQuery: function() {
-    var submit = $(".sqlSelect:visible");
+    var submit = $(".sqlSelect:visible"),n=0;
     //var submit = $("#sqlSelect");
     submit.live("click",function() {
-      if($(this).find(".blockUI").length){return;}
+      if(n==1){
+        return;
+      }
+      
+      //if($(this).find(".blockUI").length){console.log(1);return;}
       var pro=Query.getQueryOptions().pro,
           ver=Query.getQueryOptions().ver,
           sql=Query.getQueryOptions().sql,
@@ -400,7 +404,8 @@ var params={
         return false;
       }      
 
-      $(".sqlSelect:visible").block();
+      $(".sqlSelect:visible").block({ message: null });
+      n=1;
 
                 $.ajax({
                     url: "/sql/queries/",
@@ -415,7 +420,7 @@ var params={
                     dataType: 'json',
                     error: function(){$(".sqlSelect:visible").unblock();},
                     success: function(data){
-                        $(".sqlSelect:visible").unblock();
+                        //$(".sqlSelect:visible").unblock();
                     },
                     statusCode:{
                       201:function(data){
@@ -433,7 +438,7 @@ var params={
                                   dataType: 'json',
                                   error: function(){$(".sqlSelect:visible").unblock();},
                                   success: function(data){
-                                      $(".sqlSelect:visible").unblock();
+                                      //$(".sqlSelect:visible").unblock();
                                   },
                                   statusCode:{
                                     200:function(data){
@@ -470,6 +475,9 @@ var params={
                                                     $(".progress .bar",main).css("width",progressV).text(progressV);                                      
                                                     $(".sqlLog",main).html($(".sqlLog",main).html()+"<br/>"+log);
                                                     if(data.status=="succeeded"){
+                                                      n=0;
+                                                      $(".sqlSelect:visible").unblock();
+
 
                                                       var url ="/sql"+ data.url;
                                                       $(".progress .bar",main).css("width","100%").text("100%");
@@ -481,6 +489,8 @@ var params={
                                                       $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());                                
                                                       Query.setGrid(data.result.titles,data.result.values);
                                                     }else if(data.status=="failed"){
+                                                      n=0;
+                                                      $(".sqlSelect:visible").unblock();
                                                       var error=data.error,
                                                           log=data.log;
 
@@ -492,6 +502,8 @@ var params={
                                                           
                                                     }
                                                   }else{
+                                                      n=0;
+                                                      $(".sqlSelect:visible").unblock();
                                                       Boxy.alert("服务器已停止或服务器没有响应");
                                                   }    
                                                 },
