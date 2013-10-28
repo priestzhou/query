@@ -1,4 +1,10 @@
 var Common={
+	init:function(){
+		this.setInput();
+	},
+	setInput:function(){
+		$.sc2.placeholder({trigger:".popInput"});
+	},
 	getTimes:function(){
 		return new Date().getTime();
 	},
@@ -11,12 +17,16 @@ var Common={
 	        show: 100,
 	        hide: 1000
 	      }
-	    });		
+	    });
+	    		
 	},
 	getSelectTime:function(from,main){
 		var startTime=from;
 		$(".sqlTime",main).html("");
-		Common.timer=setInterval(function(){
+		var name=main.attr("name");
+
+		Common.timer={};Common.timer[name]=null;
+		Common.timer[name]=setInterval(function(){
 			var currentTime=Common.getTimes(),
 				ms=currentTime-startTime;
 
@@ -105,7 +115,7 @@ var Common={
 	  "synced-data":"数据传输总量",
 	  "url":"收集器路径",
 	  "status":"状态",
-	  "操作":"操作",
+	  "操作":"操作"
 	}    
     var values=value,
         column=title;
@@ -141,5 +151,5 @@ var Common={
 
 
 
-  }  	
+  }    	
 }

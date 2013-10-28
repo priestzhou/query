@@ -14,6 +14,8 @@
 </head>
 
 <body>
+	<div id="sqlWrap">
+		<div id="sqlWrapMain">
 
 	<div class="sqlBar">
 		<span class="loginInfo">尊敬的***，欢迎您！</span>
@@ -31,7 +33,7 @@
 				</div>
 				<div class="span8" style="width:315px;float:right;">
 					<div class="btn-group" style="float:left;">
-						<a class="topMenu1" href="index.html" data-toggle="dropdown">
+						<a class="topMenu1 active" href="index.html" data-toggle="dropdown">
 							<span class="sqlIcon selectIcon"></span>
 							数据查询
 							<span class="sqlIcon downIcon"></span>
@@ -101,9 +103,14 @@
 
 		<!-- sqlTable start-->
 	<div class="sqlRTable">	
-		<p class="sqlDownloadWrap">
-			<a class="btn_green" id="sqlDownload" href="#" data-toggle="tooltip">下载查询结果</a>
-		</p>
+		<div class="sqlDownloadWrap">
+			<div class="btn_green" id="sqlDownload">下载查询结果
+				<p>
+					<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="javascript:void(0);">获取下载链接</a>				
+				</p>	
+
+			</div>
+		</div>
 
 
 		<div id="sqlTableWrap">
@@ -112,12 +119,18 @@
 		<!-- sqlTable end-->
 
 	</div><!-- container -->
+
+</div>
+</div>
+
 	<div id="footer">
-		2013 datawize
+		Copyright &copy; 2013 WhaleMiner
 	</div>
 	<script src="js/jquery-1.7.2.min.js" language="javascript"></script>
 	<script src="js/jquery.cookie.js" language="javascript"></script>
+	<script src="js/jquery.zclip.js" language="javascript"></script>	
 	<script src="js/bootstrap.min.js" language="javascript"></script>
+	<script src="js/jquery.placeholder.js" language="javascript"></script>		
 	<script src="js/jquery.ztree.all-3.5.min.js" language="javascript"></script>
 	<script src="js/magic/core.js" language="javascript"></script>
 	<script src="js/magic/tabs.js" language="javascript"></script>
@@ -141,7 +154,7 @@ $(function(){
 	<table cellpadding="0" cellspacing="0" border="0" id="popGrid"></table>	
 </div> -->
 <div id="sqlTabCon" style="display:none">	
-
+				<div class="boxShadowStyle" style="position:relative;z-index:2">
 					<select class="select_pro">
 						<option>产品</option>
 					</select>
@@ -159,6 +172,7 @@ $(function(){
 						<span class="sqlSIcon oHIcon"></span>
 						打开历史查询
 					</a>
+				</div>
 
 					<div class="sqlBoxDiv">
 						<textarea rows="10" id="sqlBox" class="sqlArea"></textarea>

@@ -9,7 +9,7 @@ var Query = {
     this.getQuery();
     this.setDownQuery();
     Common.slideClick();
-    this.doTablesOp();
+    this.doTablesOp(); 
 
   },
   setUi: function() {
@@ -21,11 +21,19 @@ var Query = {
     dom.each(function(k,v){
       if ($(v).parent().find(".selectTen").length>0) return;
       $(v).after(icon);
+
+
     })
+
+/*    dom.hover(function(){
+      $(this).next().show();
+    },function(){
+      $(this).next().hide();
+    })*/
+
 
   },  
   setTreeData: function() {
-
 
     var uid=$.cookie("user_id");
     if(!uid){
@@ -58,7 +66,7 @@ var Query = {
             app=ver.getParentNode(),
             verName=ver.name,
             appName=app.name;                        
-            var html = "`"+appName+"."+verName+"."+name+"`";//'select * from '
+            var html = "`"+appName+"`.`"+verName+"`.`"+name+"`";//'select * from '
             //Query.setAddTabs(Query.tabs,html);
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);           
@@ -69,7 +77,7 @@ var Query = {
             var pNode = t[0].getParentNode(),
                 ver=pNode.getParentNode(),
                 app=ver.getParentNode(),
-                html = "`"+app.name+"."+ver.name+"."+pNode.name+"."+name+"`";// + ' from ' + pNode.name
+                html = "`"+app.name+"`.`"+ver.name+"`.`"+pNode.name+"`.`"+name+"`";// + ' from ' + pNode.name
             //Query.setAddTabs(Query.tabs,html);
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);
@@ -80,9 +88,7 @@ var Query = {
     };
 //tree data
 
-    var t = $("#sqlTree"),tree;
-
-
+    var t = $("#sqlTree"),tree;   
 
     $(".selectTenL",t).live("click",function(){
             var tId=$(this).parent().attr("id"),
@@ -99,13 +105,13 @@ var Query = {
                titles.push(children[i].name); 
             }
 
-            Query.setPopGrid(titles,values,"<span class='sqlIcon tipIcon'></span>前十条参考数据",true);
+            Query.setPopGrid(titles,values,"<span class='sqlIcon tipIcon tipTenIcon'></span>前十条参考数据",true);
             return false;
     })
     $(".sqlRow").block();
     $.get(
       "/sql/meta", {
-        "timestamp": Common.getTimes()
+
       },
       function(data,status) {
         $(".sqlRow").unblock();
@@ -227,7 +233,7 @@ var Query = {
       });
 
       var main=Query.getCurrentTab();
-      $(".progress",main).hide();
+      $(".progress",main).css("display","none");
       $(".sqlTime",main).html("");
 
       if(typeof value!=="undefined"){
@@ -251,7 +257,7 @@ var allColumn=[];
       bSort: false,
       "aaData": values,
       "aoColumns": allColumn,
-      sScrollX:"1000px",
+      sScrollXInner:"110%",
       oLanguage: {
         "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
         "sSearch": "搜索：",
@@ -292,6 +298,7 @@ var params={
 
     //var popHtml=$("#pop");
     new Boxy(popHtml, {title: poptitle,closeText:"",modal:true,unloadOnHide:true});
+
     if(option){
       $('#popGrid').dataTable({
         "bProcessing": true,
@@ -316,7 +323,6 @@ var params={
         "aaData": values,
         "aoColumns":allColumn,
         sScrollY:"300px",
-        sScrollX:"100%",
         oLanguage:{
           "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
           "sSearch":"搜索：",
@@ -330,13 +336,12 @@ var params={
           }                    
         }     
       });
-      if(allColumn.length==5){
-        $("#pop th").css("width","20%");
-        $("#popGrid td").css("width","20%");
+/*      if(allColumn.length==4){
+
       }else{
         $("#pop th").css("width","14.2%");
         $("#popGrid td").css("width","14.2%");
-      }
+      }*/
 
     }
 
@@ -376,12 +381,15 @@ var params={
     }
   },
   setQuery: function() {
-    var submit = $(".sqlSelect:visible"),n=0;
+    var submit = $(".sqlSelect:visible");
     //var submit = $("#sqlSelect");
     submit.live("click",function() {
-      if(n==1){
+      //var current=Query.getCurrentTab().attr("name");
+      var submitT=$(this);
+      if(submitT.data("n")==1){
         return;
       }
+
       
       //if($(this).find(".blockUI").length){console.log(1);return;}
       var pro=Query.getQueryOptions().pro,
@@ -404,8 +412,8 @@ var params={
         return false;
       }      
 
-      $(".sqlSelect:visible").block({ message: null });
-      n=1;
+      submitT.block({ message: null });
+      submitT.data("n",1)
 
                 $.ajax({
                     url: "/sql/queries/",
@@ -414,11 +422,10 @@ var params={
                         "app":pro,
                         "version":ver,
                         "db":"",
-                        "query":sql,                      
-                        "timestamp": Common.getTimes()
+                        "query":sql
                     },
                     dataType: 'json',
-                    error: function(){$(".sqlSelect:visible").unblock();},
+                    error: function(){submitT.unblock();},
                     success: function(data){
                         //$(".sqlSelect:visible").unblock();
                     },
@@ -436,7 +443,7 @@ var params={
                                       "timestamp": Common.getTimes()
                                   },
                                   dataType: 'json',
-                                  error: function(){$(".sqlSelect:visible").unblock();},
+                                  error: function(){submitT.unblock();},
                                   success: function(data){
                                       //$(".sqlSelect:visible").unblock();
                                   },
@@ -445,15 +452,18 @@ var params={
                                           
                                           $(".sqlLog",main).html("");
                                           if(data.status=="failed"){
+                                            submitT.data("n",0);
+                                            submitT.unblock();                                            
                                             var error=data.error,
                                                 log=data.log;
-                                                $(".progress",main).hide();
+                                                $(".progress",main).css("display","none");
                                                 $(".sqlTime",main).html("");                                                
                                                 $(".sqlLog",main).html(error+"<br/>"+log);
 
                                           }else if(data.status=="running"){
-                                            var now=Common.getTimes();
-                                            Common.getSelectTime(now,main);
+                                            
+                                            //var now=Common.getTimes();
+                                            Common.getSelectTime(Common.getTimes(),main);
 
                                             getResult[mainName]=setInterval(function(){
                                                 $.get(
@@ -471,39 +481,47 @@ var params={
                 						                          //var url ="/sql"+ data.url;
                                             			    //$("#sqlDownload").attr("data-id",url);
 
-                                                    $(".progress",main).show();
-                                                    $(".progress .bar",main).css("width",progressV).text(progressV);                                      
+                                                    $(".progress",main).css("display","inline-block");
+                                                    if(progressN>=95){
+                                                      $(".progress .bar",main).css("width","95%").text("95%");
+                                                    }else{
+                                                      $(".progress .bar",main).css("width",progressV).text(progressV);
+                                                    }
+                                                                                          
                                                     $(".sqlLog",main).html($(".sqlLog",main).html()+"<br/>"+log);
                                                     if(data.status=="succeeded"){
-                                                      n=0;
-                                                      $(".sqlSelect:visible").unblock();
+                                                      submitT.data("n",0);
+                                                      submitT.unblock();
 
 
                                                       var url ="/sql"+ data.url;
                                                       $(".progress .bar",main).css("width","100%").text("100%");
+                                                      setTimeout(function(){$(".progress",main).css("display","none");},800);
+
                                                       $("#sqlDownload").attr("data-url",url);
 
-                                                      $(".sqlDownloadWrap").show();
+                                                      $("#sqlDownload").css("visibility","visible");
+
                                                       clearInterval(getResult[mainName]);
-                                                      clearInterval(Common.timer);
+                                                      clearInterval(Common.timer[mainName]);
                                                       $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());                                
                                                       Query.setGrid(data.result.titles,data.result.values);
                                                     }else if(data.status=="failed"){
-                                                      n=0;
-                                                      $(".sqlSelect:visible").unblock();
+                                                      submitT.data("n",0);
+                                                      submitT.unblock();
                                                       var error=data.error,
                                                           log=data.log;
 
                                                           clearInterval(getResult[mainName]);
-                                                          clearInterval(Common.timer);
-                                                          $(".progress",main).hide();
+                                                          clearInterval(Common.timer[mainName]);
+                                                          $(".progress",main).css("display","none");
                                                           $(".sqlTime",main).html("");
                                                           $(".sqlLog",main).html(error+"<br/>"+log);
                                                           
                                                     }
                                                   }else{
-                                                      n=0;
-                                                      $(".sqlSelect:visible").unblock();
+                                                      submitT.data("n",0);
+                                                      submitT.unblock();
                                                       Boxy.alert("服务器已停止或服务器没有响应");
                                                   }    
                                                 },
@@ -543,8 +561,9 @@ var params={
 
     sqlSave.live("click",function() {
 
-      var html='<input class="sqlSaveName" type="text" value=""/><p><a id="sqlSaveBtn" class="btn_blue" href="javascript:void(0);">保存</a></p>';
-      Query.setPop("<span class='sqlIcon tipIcon'></span>保存为常用查询",html);
+      var html='<input class="sqlSaveName popInput" placeholder="请输入名称" type="text" value=""/><p><a id="sqlSaveBtn" class="btn_blue_long" href="javascript:void(0);">保存</a></p>';
+      Query.setPop("<span class='sqlIcon tipIcon tipCommonIcon'></span>保存为常用查询",html);
+      Common.setInput();
     })
 
 
@@ -579,8 +598,7 @@ var params={
                       "app":pro,
                       "version":ver,
                       "db":"",
-                      "query":sql,
-                      "timestamp": Common.getTimes()
+                      "query":sql
             },
             dataType: 'json',
             error: function(){},
@@ -604,22 +622,30 @@ var params={
         },
         function(data,status) {
           if(!data.length){Boxy.alert("暂时没有常用查询");return;}
-          var titles=[],v=[];
+          var titles=[],v=[],data_id=[];
 
           for (var j=0,l=data.length;j<l;j++){
               titles[j]=[];
               v[j]=[];
               for (var i in data[j]){
-                titles[j].push(i);
-                v[j].push(data[j][i]);
+                if(i=="db"){
+                  delete data[j][i];
+                }else if(i=="id"){
+                  data_id.push(data[j][i]);
+                  delete data[j][i];
+                }else{
+                  titles[j].push(i);
+                  v[j].push(data[j][i]);                  
+                }  
+
               }
-              var del=Query.getTablesOp("del",data[j].id),
-                  edit=Query.getTablesOp("edit",data[j].query);
+              var del=Query.getTablesOp("del",data_id[j]),
+                  edit=Query.getTablesOp("edit",data[j].query,data[j].app,data[j].version);
               v[j].push(del+" "+edit);              
           }
 
           titles[0].push("操作");  
-          Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon'></span>常用查询");
+          Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon tipCommonSIcon'></span>常用查询");
         },
         "json");
       return false;
@@ -648,7 +674,7 @@ var params={
                 if(i=="url"){
                   data_url.push(data[j][i]);
                   delete data[j][i];                  
-                }else if(i=="duration"){
+                }else if(i=="duration" || i=="id"){
                   delete data[j][i];
                 }else{
                   titles[j].push(i);
@@ -663,7 +689,7 @@ var params={
               v[j].push(edit+" "+download);
           }
           titles[0].push("操作");
-          Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon'></span>历史查询");
+          Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon tipHistoryIcon'></span>历史查询");
         },
         "json");
         return false;      
@@ -678,16 +704,24 @@ var params={
         },
         function(data,status) {
           if(!data.length){Boxy.alert("暂时没有历史查询");return;}
-          var titles=[],v=[];
+          var titles=[],v=[],data_url=[];;
 
           for (var j=0,l=data.length;j<l;j++){
               titles[j]=[];
               v[j]=[];
-              //data[i]["submit-time"]=Common.formatTime(data[i]["submit-time"]);
+              data[j]["duration"]=data[j]["duration"]/1000+"秒";
+              if(data[j]["status"]==1){
+                data[j]["status"]="成功";
+              }else{
+                data[j]["status"]="失败";
+              }              
               for (var i in data[j]){
 
-                if(i=="duration" || i=="url"){
+                if(i=="url"){
+                  data_url.push(data[j][i]);
                   delete data[j][i];                  
+                }else if(i=="id"){
+                  delete data[j][i];
                 }else{
                   titles[j].push(i);
                   v[j].push(data[j][i]);                  
@@ -695,8 +729,8 @@ var params={
 
               }
 
-              var del=Query.getTablesOp("del",data[j].id),edit=Query.getTablesOp("edit",data[j].query);
-              v[j].push(del+" "+edit);
+              var download=Query.getTablesOp("download",data_url[j]);
+              v[j].push(download);
           }
           titles[0].push("操作");
           //Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon'></span>历史查询");
@@ -709,6 +743,8 @@ var params={
   "version":"版本",
   "操作":"操作",
   "db":"数据库",
+  "duration":"用时",
+
   "submit-time":"查询时间"
 }    
             var values=v,
@@ -752,7 +788,7 @@ var params={
 
   },
   getTablesOp:function(type,value){
-    var opName="",cls="";
+    var opName="",cls="",data_app="",data_ver="";
     if(type=="del"){
       opName="删除";
       cls="tablesDel";
@@ -763,7 +799,11 @@ var params={
       opName="下载";
       cls="tablesDownload";
     }
-    var html='<a class='+cls+' rel="'+value+'" href="javascript:void(0);">'+opName+'</a>';
+    if(typeof arguments[2] !="undefined"){
+      var data_app=' data-app='+arguments[2],
+          data_ver=' data-ver='+arguments[3];
+    }
+    var html='<a class='+cls+' rel="'+value+'" href="javascript:void(0);"'+data_app+data_ver+'>'+opName+'</a>';
     return html;
   },
   doTablesOp:function(){
@@ -773,7 +813,7 @@ var params={
             url: '/sql/saved/'+id+"/",
             type: 'delete',
             data:{
-                      "timestamp": Common.getTimes()
+
             },
             dataType: 'json',
             error: function(){},
@@ -789,8 +829,13 @@ var params={
         });
     })
     $(".tablesEdit").live("click",function(){
-        var sql=$(this).attr("rel");
+        var sql=$(this).attr("rel"),
+            main=Query.getCurrentTab();
         Query.getCurrentEditor().setValue(sql);
+        if($(this).attr("data-app")){
+          $(".select_pro",main).val($(this).attr("data-app"));
+          $(".select_ver",main).val($(this).attr("data-ver"));
+        }
         Query.delBoxy();
 
     })    
@@ -835,17 +880,36 @@ var params={
 
         return false;     
     })
-    $(".downResultLink").live("click",function(){
+/*    $(".downResultLink").live("click",function(){
         var csv_url=$("#sqlDownload").attr("data-url");
         location.href="mailto:aaa@xxx.com?body="+csv_url;
         return false;     
-    })    
+    }) */   
+
+
+      $('.downResultLink').zclip({
+        copy: function() {        
+          return $("#sqlDownload").attr("data-url");
+        },
+        afterCopy:function(){
+          alert("复制成功");
+        }
+      });
 
   },
   setDownload:function(){
     var sqlDown = $("#sqlDownload"),
-        tipHtml='<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="#">获取下载链接</a>';
-    Common.setTooltips(sqlDown,tipHtml);
+        tipHtml='<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="javascript:void(0);">获取下载链接</a>';
+    //Common.setTooltips(sqlDown,tipHtml);
+    sqlDown.mouseenter(function(){
+      $(this).find("p").css("visibility","visible");
+
+    })
+    sqlDown.mouseleave(function(){
+      $(this).find("p").css("visibility","hidden");
+
+    })
+
   },
   delBoxy:function(){
     $(".boxy-wrapper,.boxy-modal-blackout").remove();

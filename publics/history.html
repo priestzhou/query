@@ -21,6 +21,8 @@
 </head>
 
 <body>
+	<div id="sqlWrap">
+		<div id="sqlWrapMain">
 
 	<div class="sqlBar">
 		<span class="loginInfo">尊敬的***，欢迎您！</span>
@@ -77,8 +79,12 @@
 		<!-- sqlTable end-->
 
 	</div><!-- container -->
+
+	</div>
+	</div>
+	
 	<div id="footer">
-		2013 datawize
+		Copyright &copy; 2013 WhaleMiner
 	</div>
 	<script src="js/jquery-1.7.2.min.js" language="javascript"></script>
 	<script src="js/jquery.cookie.js" language="javascript"></script>
@@ -99,6 +105,7 @@
 
 $(function(){		
 	Query.getHistory();
+	Query.doTablesOp();
 })
 </script>
 
