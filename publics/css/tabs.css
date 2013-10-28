@@ -6,8 +6,8 @@
 	margin-left: 37px;
 }
 .tabs>.hbar {
-	width: 100%; height: 2px; position: relative;
-	background-color: #0088CC; z-index: 2; top: 28px!important;
+	width: 100%; height: 3px!important; position: relative;
+	background-color: #51b2d3; z-index: 2; top: 28px!important;
 }
 .tabs>.head>.sbtn {
 	width: 24px; height: 24px; float: left;
@@ -64,9 +64,10 @@
     background-position: -80px -128px;
 }
 .tabs .icon {
-    background-image: url("../img/tabs/icons.png");
+    background-image: url("../img/icon.png");
     float: left;
     height: 16px;
     overflow: hidden;
     width: 16px;
+    background-position: -194px -198px;
 }

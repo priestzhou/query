@@ -1,6 +1,18 @@
 body{
-	background: #fff;
+	background:#fff url(../img/re.jpg) repeat-x 0 0;
 	font-size: 12px;
+}
+body#homeBody{
+	background: none;
+}
+html,body{
+	height: 100%;
+}
+#sqlWrap{
+	min-height: 100%;
+}
+#sqlWrapMain{
+	padding-bottom: 47px;
 }
 p{
 	margin:0;
@@ -35,7 +47,12 @@ a:hover{
 	text-align: right;
 	color: #d8d8d8;
 	padding:0 20px 3px 0;
-	background: #230c1a url(../img/top.jpg) no-repeat 50% 0;	
+	background: transparent url(../img/top.jpg) no-repeat 100% 0;	
+}
+.sqlBarHome{
+	height: 1px;
+	background-color: #db3920;
+	background-position: 100% 100%;
 }
 .sqlBar a{
 	color: #d8d8d8;
@@ -58,6 +75,7 @@ a:hover{
 	background-repeat: no-repeat;
 	display: inline-block;
 }
+
 .sqlSIcon{
 	background-image: url(../img/icon_small.png);
 	background-repeat: no-repeat;
@@ -79,7 +97,7 @@ a:hover{
 	height: 30px;
 	vertical-align: middle;	
 }
-.topMenu1:hover .selectIcon{
+.topMenu1:hover .selectIcon,.topMenu1.active .selectIcon{
 	background-position: -51px -102px;
 }
 
@@ -88,8 +106,11 @@ a:hover{
 	width: 18px;
 	height: 18px;
 }
-.topMenu1:hover .downIcon{
+.topMenu1:hover .downIcon,.topMenu1.active .downIcon{
 	background-position: -211px -147px;
+}
+.topMenu1.active{
+	color: #1b9abb;
 }
 .dbIcon{
 	background-position: -7px -71px;
@@ -177,6 +198,21 @@ a.selectTenL:hover .selectTen{
     vertical-align: top;
     width: 45px;
 }
+.tipCommonIcon{
+	background-position: -70px -238px;
+}
+.tipCommonSIcon{
+	background-position: -174px -238px;
+}
+.tipHistoryIcon{
+	background-position: -121px -238px;
+}
+.tipTenIcon{
+	background-position: -227px -238px;
+}
+.tipPerIcon{
+	background-position: -279px -238px;
+}
 .sqlLogLink a{
 	position: absolute;
 	right: 0;
@@ -201,7 +237,7 @@ a.active .logIcon{
 a.active:hover .logIcon{
 	background-position: -124px -704px;
 }
-.topMenu2:hover .dbIcon{
+.topMenu2:hover .dbIcon,.topMenu2.active .dbIcon{
 	background-position: -7px -100px;
 }
 .sqlHeader{
@@ -223,12 +259,15 @@ margin: 0 auto; */
 	text-decoration: none;
 	color: #1b9abb;
 }
+.topMenu2.active{
+	color: #1b9abb;
+}
 
 .sqlBread{
 	border-left: 4px solid #de8533;
 	border-bottom: 1px solid #D4D8DB;
-	height: 30px;
-	line-height: 30px;
+	height: 34px;
+	line-height: 34px;
 	padding-left: 10px;
 }
 .sqlBread a{
@@ -249,6 +288,10 @@ margin: 0 auto; */
 	line-height: 35px;
 	margin:0;
 	border-bottom:1px solid #D4D8DB;
+-webkit-box-shadow: 0 3px 3px #d6d6d6;
+-moz-box-shadow: 0 3px 3px #d6d6d6;
+box-shadow: 0 3px 3px #d6d6d6;	
+position: relative;
 }
 .treeOp a{
 	color: #dc8633;
@@ -270,9 +313,9 @@ margin: 0 auto; */
 
 
 .boxShadowStyle{
-  -webkit-box-shadow: 0 5px 5px #d7d7d7;
-     -moz-box-shadow: 0 5px 5px #d7d7d7;
-          box-shadow: 0 5px 5px #d7d7d7;
+  -webkit-box-shadow: 0 3px 3px #d6d6d6;
+     -moz-box-shadow: 0 3px 3px #d6d6d6;
+          box-shadow: 0 3px 3px #d6d6d6;
 }
 [class*="span"]{
 	margin-left: 0;
@@ -293,7 +336,7 @@ margin: 0 auto; */
 
 .sqlMain{
 	width: 100%;
-	padding-top: 10px;
+	padding-top: 4px;
 	height: 495px;
 /* 	overflow: hidden; */
 }
@@ -321,8 +364,10 @@ margin: 0 auto; */
 }
 .sqlBoxDiv{
 	border:1px solid #CCC;
-	padding: 4px 6px;
+/* 	padding: 4px 6px; */
 	margin-bottom: 5px;
+	border-left: 0;
+	border-right: 0;		
 }
 [class^="icon-"], [class*=" icon-"]{
 	background-image: url("http://qinliang760.github.io/cdn/img/glyphicons-halflings.png");
@@ -336,12 +381,34 @@ margin: 0 auto; */
 
 #sqlDownload{
 	/* display: none; */
+	position: relative;
+	left: 22px;
 	padding-left: 15px;
 	padding-right: 15px;
+	visibility: hidden;
+}
+#sqlDownload p{
+	position: absolute;
+	width: 167px;
+	height: 46px;
+	top: 22px;
+	left: 50%;
+	line-height: 46px;
+	margin-left: -83px;
+	visibility: hidden;
+	background: url(../img/f_bg.png) no-repeat 0 0;
+}
+#sqlDownload p a{
+	display: inline-block;
+	color: #555;
+	text-decoration: underline;
+}
+#sqlDownload p a:hover,#sqlDownload p a.hover{
+	color: #499fef;
 }
 .sqlDownloadWrap{
 	padding:10px;
-	display: none;
+	/* display: none; */
 	position: absolute;
 	z-index: 2;
 /* 	border-bottom: 1px solid #D4D8DB; */
@@ -374,6 +441,8 @@ line-height:normal;
 	line-height: 47px;
 	background-color: #090909;
 	text-align: center;
+	position: relative; 
+	margin-top: -47px;
 }
 
 
@@ -405,8 +474,21 @@ line-height:normal;
 	border-color: #3992ec;
 	text-decoration: none; 
 }
-
-
+.btn_blue_long{
+	background: #1898ba;
+	border-radius: 5px;
+	color: #fff;
+	height: 32px;
+	width: 256px;
+	display: inline-block;
+	text-align: center;
+	line-height: 32px;
+	font-size: 16px;
+}
+.btn_blue_long:hover{
+	background: #06b9e2;
+	text-decoration: none;
+}
 
 .sqlLogWrap{
 	padding:0 10px;
@@ -441,27 +523,27 @@ a.sqlLogLink{
 	color: #fff;
 	font-weight: bold;
 	text-align: left;
-/* 	width: 20%!important; */
 }
 #pop{
 	height: 400px;
 	width: 900px;
 }
 #popGrid td{
-/* 	width: 20%!important; */
 	border:1px solid #d3d8db;
 }
-.dataTables_wrapper{
+#sqlTableWrap .dataTables_wrapper{
 /* 	height: 400px; */	
+	overflow-x:scroll;
 }
 #pop th{
 	background: #4a9ff0;
-	border:1px solid #2e83e0;
+/* 	border:1px solid #2e83e0; */
+	border: none;
 	color: #fff;
 	font-weight: bold;
 	text-align: left;
 	vertical-align: top;
-/* 	width: 20%!important; */
+	min-width: 100px;
 }
 .vm{
 	display: inline-block;
@@ -471,13 +553,20 @@ a.sqlLogLink{
 .sqlSave,.openCommon,.openHistory{
 	padding-top: 3px;
 	margin-left: 15px;
+	text-decoration: underline;
+	color: #51b2d3;
 
+}
+.sqlSave:hover,.openCommon:hover,.openHistory:hover{
+	color:#0088cc; 
 }
 #sqlSelect{
 	margin-left: 15px;
 }
 .sqlTime{
 	padding:5px 15px;
+	display: inline-block;
+	vertical-align: middle;
 }
 #sqlTableWrap{
 	padding-top: 7px;
@@ -502,15 +591,19 @@ a.sqlLogLink{
 }
 table.dataTable{
 	margin-bottom: 10px;
+
+	max-width: none!important;
+}
+table.dataTable td{
+	border: 1px solid #D3D8DB;
 }
 #sqlSaveBtn{
-	width: 100px;
 	margin:0 auto;
 	display: block;
 }
 
 .dataTables_scrollHeadInner{
-	height: 28px;
+	height: 26px;
 }
 
 #sqlTableWrap.colTable th{
@@ -523,4 +616,165 @@ table.dataTable{
 }
 .dataTables_scroll{
 	overflow: auto;
+}
+
+/* tree selectTenL*/
+.ztree li a.selectTenL{
+/* 	display: none; */
+}
+.treeDown{
+	margin-right: 10px;
+}
+.select_pro{
+	margin-left: 3px;
+	margin-right: 10px;
+}
+.select_ver{
+	margin-right: 15px;
+}
+.progress{
+	width: 350px;
+	display: none;
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+.tooltip-inner{
+	width: 130px;
+}
+.downResultLink{
+	display: block;
+}
+
+
+
+/* home */
+#homeContact{
+	width: 125px;
+	float: right;
+	padding-top: 17px;
+
+}
+#homeContact a{
+	color: #fff;
+	height: 21px;
+	line-height: 21px;
+	padding: 0 10px;
+	/* padding: 5px; */
+	display: inline-block;
+}
+#homeContact a.contact1{
+	background-color: #ff5741;
+	border-right: 1px solid #fff;
+
+}
+#homeContact a.contact2{
+	background-color: #a1a1a1;
+}
+.homeSlide{
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 60px;
+	color: #333;
+	height: 480px;
+	overflow: hidden;
+}
+.banner1{
+	height: 480px;
+	width: 1000px;
+	overflow: hidden;
+	background: url(../img/home_banner1.jpg) no-repeat right 0;
+}
+.banner2{
+	height: 480px;
+	width: 1000px;
+	display: none;
+	overflow: hidden;
+	background: url(../img/home_banner2.jpg) no-repeat 0 0;
+}
+.banner2 .banner2Right{
+	float: right;
+	width: 296px;
+}
+.banner2 .bannerList .bannerListCon{
+	padding-left: 65px;
+	position: relative;
+	padding-bottom: 36px;
+}
+.banner2 .bannerList .bannerListCon .bannerListT{
+	padding-bottom: 10px;
+}
+.banner2 .bannerList .bannerListCon span{
+	background: url(../img/login.png) no-repeat -18px -291px;
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 0;
+	top: 0
+}
+.banner2 .bannerList .bannerListCon span.homeListIcon1{
+	background-position: -18px -342px;
+}
+.banner2 .bannerList .bannerListCon span.homeListIcon2{
+	background-position: -18px -391px;
+}
+.banner2 .bannerList .bannerListCon span.homeListIcon3{
+	background-position: -18px -442px;
+}
+.banner2 .bannerList .bannerListCon p{
+	color: #666;
+	font-size: 15px;
+}
+.banner2 .bannerList .bannerListCon p.bannerListT{
+	color: #333;
+	font-size: 18px;
+	font-weight: bold;
+}
+.banner1 p{
+	font-size: 30px;
+
+}
+.banner1 .banner1ConT{
+	font-size: 60px;
+	padding-top: 110px;
+	padding-bottom: 40px;
+
+}
+.loginBox{
+	padding-top: 20px;
+}
+.loginBox a{
+	display: inline-block;
+	font-size: 18px;
+	color: #666;
+	vertical-align: middle;
+	padding:0 1px 0 14px;
+}
+.loginBox .loginBtn{
+	width: 178px;
+	height: 58px;
+	background: url(../img/login.png) no-repeat -15px -47px;
+}
+.loginBox .loginReg{
+	border-left: 2px solid #666;
+}
+.loginBox .loginBtn:hover{
+	background-position: -15px -123px;
+}
+.bannerNav{
+	text-align: center;
+}
+.bannerNav a{
+	display: inline-block;
+	background: url(../img/login.png) no-repeat -43px -8px;
+	width: 20px;
+	height: 22px;
+}
+.bannerNav a:hover,.bannerNav a.active{
+	background-position: -18px -8px;
+}
+input.popInput{
+	width: 240px;
+	display: block;
+	margin: 0 auto 10px;
 }
