@@ -24,7 +24,7 @@ var Query = {
     this.getQuery();
     //this.setDownQuery();
     Common.slideClick();
-    this.doTablesOp(); 
+    this.doTablesOp();
     Common.delCookie();
     Common.login();
 
@@ -61,7 +61,7 @@ var Query = {
             for(var j=0,le=data[0].children.length;j<le;j++){
               verArr.push('<option>'+data[0].children[j].name+'</option>');
 
-            }          
+            }
 
           $("#sqlTabCon .select_pro").html(proArr.join(''));
           $("#sqlTabCon .select_ver").html(verArr.join(''));
@@ -81,8 +81,8 @@ var Query = {
             }
             select_ver.html(verArr.join(''));
 
-          })  
-  },  
+          })
+  },
   setTreeData: function() {
 
     var uid=$.cookie("user_id");
@@ -115,11 +115,11 @@ var Query = {
             var ver=t[0].getParentNode(),
             app=ver.getParentNode(),
             verName=ver.name,
-            appName=app.name;                        
+            appName=app.name;
             var html = quote(appName) + "." + quote(verName) + "." + quote(name);
             //Query.setAddTabs(Query.tabs,html);
             var currentV=Query.getCurrentEditor().getValue();
-            Query.getCurrentEditor().setValue(currentV+" "+html);           
+            Query.getCurrentEditor().setValue(currentV+" "+html);
             return false;
           } else if (type == "namespace") {
             return false;
@@ -138,7 +138,7 @@ var Query = {
     };
 //tree data
 
-    var t = $("#sqlTree"),tree;   
+    var t = $("#sqlTree"),tree;
 
     $(".selectTenL",t).live("click",function(){
             var tId=$(this).parent().attr("id"),
@@ -152,7 +152,7 @@ var Query = {
                 titles=[];
 
             for (var i=0,l=children.length;i<l;i++){
-               titles.push(children[i].name); 
+               titles.push(children[i].name);
             }
 
             Query.setPopGrid(titles,values,"<span class='sqlIcon tipIcon tipTenIcon'></span>前十条参考数据",true);
@@ -216,8 +216,8 @@ var Query = {
       items: dd,
       onCloseTab: function(me, c, a) {
 
-        //me.closeTab(c);        
-        //Boxy.confirm("确定删除？", function() {me.closeTab(c);return true;}, {title: "提示信息"});      
+        //me.closeTab(c);
+        //Boxy.confirm("确定删除？", function() {me.closeTab(c);return true;}, {title: "提示信息"});
         //$(this).parents(".item").remove();
         //$(".item[name="+c+"]").remove();
         return true;
@@ -238,9 +238,9 @@ var Query = {
 
     delTabs.click(function(){
       //Boxy.confirm("确定删除？", function() {
-        Query.tabs.select('tab0');    
+        Query.tabs.select('tab0');
         Query.tabs.closeTabs();
-      //}, {title: "提示信息"});            
+      //}, {title: "提示信息"});
 
       return false;
     })
@@ -282,14 +282,14 @@ var Query = {
 var values=value,
     column=title;
 var allColumn=[];
-    for (var i=0,l=column.length;i<l;i++){ 
+    for (var i=0,l=column.length;i<l;i++){
       allColumn.push({"sTitle":column[i]});
     }
     var main=Query.getCurrentTab(),mainName=main.attr("name"),
         resultHtml='<div rel="'+mainName+'"></div>';
     if($(".sqlRTable div[rel="+mainName+"]").length>0){
       $(".sqlRTable div[rel="+mainName+"]").remove();
-    }    
+    }
     $(".sqlRTable").append(resultHtml);
     var currentResult=$(".sqlRTable div[rel="+mainName+"]");
     currentResult.html($("#tableResult").html());
@@ -334,7 +334,7 @@ var params={
   "操作":"操作",
   "db":"数据库",
   "submit_time":"查询提交时间"
-}    
+}
     var values=value,
         column=title;
     var allColumn=[];
@@ -357,10 +357,10 @@ var params={
         bSort:false,
         oLanguage:{
           "sProcessing":"加载中..."
-        },      
+        },
         "aaData": values,
         "aoColumns":allColumn
-      });      
+      });
     }else{
 
       $('#popGrid').dataTable({
@@ -381,8 +381,8 @@ var params={
             "sLast": "尾页",
             "sNext": "下一页",
             "sPrevious": "上一页"
-          }                    
-        }     
+          }
+        }
       });
 /*      if(allColumn.length==4){
 
@@ -438,7 +438,7 @@ var params={
         return;
       }
 
-      
+
       //if($(this).find(".blockUI").length){console.log(1);return;}
       var pro=Query.getQueryOptions().pro,
           ver=Query.getQueryOptions().ver,
@@ -446,11 +446,11 @@ var params={
           main=Query.getCurrentTab(),
           mainName=main.attr("name"),getResult={};
 
-          
+
       if(pro=="产品"){
           Boxy.alert("请选择产品");
           return false;
-      }    
+      }
       if(ver=="版本"){
           Boxy.alert("请选择版本");
           return false;
@@ -458,7 +458,7 @@ var params={
       if(sql==""){
         Boxy.alert("请输入sql语句");
         return false;
-      }      
+      }
 
       submitT.block({ message: null });
       submitT.data("n",1)
@@ -497,19 +497,19 @@ var params={
                                   },
                                   statusCode:{
                                     200:function(data){
-                                          
+
                                           $(".sqlLog",main).html("");
                                           if(data.status=="failed"){
                                             submitT.data("n",0);
-                                            submitT.unblock();                                            
+                                            submitT.unblock();
                                             var error=data.error,
                                                 log=data.log;
                                                 $(".progress",main).css("display","none");
-                                                $(".sqlTime",main).html("");                                                
+                                                $(".sqlTime",main).html("");
                                                 $(".sqlLog",main).html(error+"<br/>"+log);
 
                                           }else if(data.status=="running"){
-                                            
+
                                             //var now=Common.getTimes();
                                             Common.getSelectTime(Common.getTimes(),main);
 
@@ -524,7 +524,7 @@ var params={
                                                     var progress=data.progress,
                                                         log=data.log;
 
-                                                    var progressV=Common.toBai(progressN++,100);       
+                                                    var progressV=Common.toBai(progressN++,100);
 
                                                     $(".progress",main).css("display","inline-block");
                                                     if(progressN>=95){
@@ -532,25 +532,25 @@ var params={
                                                     }else{
                                                       $(".progress .bar",main).css("width",progressV).text(progressV);
                                                     }
-                                                                                          
+
                                                     $(".sqlLog",main).html($(".sqlLog",main).html()+"<br/>"+log);
                                                     if(data.status=="succeeded"){
                                                       submitT.data("n",0);
                                                       submitT.unblock();
 
 
-                                                      var url ="/sql"+ data.url;
+                                                      var url = data.url;
                                                       $(".progress .bar",main).css("width","100%").text("100%");
                                                       setTimeout(function(){$(".progress",main).css("display","none");},800);
 
                                                       //$("#sqlDownload").attr("data-url",url);
-                                                      
+
 
                                                       //$("#sqlDownload").css("visibility","visible");
 
                                                       clearInterval(getResult[mainName]);
                                                       clearInterval(Common.timer[mainName]);
-                                                      $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());                                
+                                                      $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());
                                                       Query.setGrid(data.result.titles,data.result.values,id,url);
                                                     }else if(data.status=="failed"){
                                                       submitT.data("n",0);
@@ -563,17 +563,17 @@ var params={
                                                           $(".progress",main).css("display","none");
                                                           $(".sqlTime",main).html("");
                                                           $(".sqlLog",main).html(error+"<br/>"+log);
-                                                          
+
                                                     }
                                                   }else{
                                                       submitT.data("n",0);
                                                       submitT.unblock();
                                                       Boxy.alert("服务器已停止或服务器没有响应");
-                                                  }    
+                                                  }
                                                 },
                                                 "json");
                                             },1000)
-                                          
+
                                           }
                                     },
                                     401:function(){Boxy.alert("用户Id不存在")}
@@ -618,7 +618,7 @@ var params={
       var name=$.trim($(".sqlSaveName").val()),
           pro=Query.getQueryOptions().pro,
           ver=Query.getQueryOptions().ver,
-          sql=Query.getQueryOptions().sql; 
+          sql=Query.getQueryOptions().sql;
 
         if(name==""){
           Boxy.alert("请输入名称");
@@ -627,7 +627,7 @@ var params={
         if(pro=="产品"){
             Boxy.alert("请选择产品");
             return false;
-        }    
+        }
         if(ver=="版本"){
             Boxy.alert("请选择版本");
             return false;
@@ -635,7 +635,7 @@ var params={
         if(sql==""){
           Boxy.alert("请输入sql语句",function(){Query.delBoxy();});
           return false;
-        }               
+        }
         $.ajax({
             url: '/sql/saved/',
             type: 'post',
@@ -659,7 +659,7 @@ var params={
 
         });
 
-      return false;        
+      return false;
     })
     openCommon.live("click",function(){
         $.get(
@@ -681,16 +681,16 @@ var params={
                   delete data[j][i];
                 }else{
                   titles[j].push(i);
-                  v[j].push(data[j][i]);                  
-                }  
+                  v[j].push(data[j][i]);
+                }
 
               }
               var del=Query.getTablesOp("del",data_id[j]),
                   edit=Query.getTablesOp("edit",data[j].query,data[j].app,data[j].version);
-              v[j].push(del+" "+edit);              
+              v[j].push(del+" "+edit);
           }
 
-          titles[0].push("操作");  
+          titles[0].push("操作");
           Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon tipCommonSIcon'></span>常用查询");
         },
         "json");
@@ -721,7 +721,7 @@ var params={
 
                 if(i=="url"){
                   data_url.push(data[j][i]);
-                  delete data[j][i];                  
+                  delete data[j][i];
                 }else if(i=="duration" || i=="id"){
                   delete data[j][i];
                 }else{
@@ -750,8 +750,8 @@ var params={
           Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon tipHistoryIcon'></span>历史查询");
         },
         "json");
-        return false;      
-    })    
+        return false;
+    })
 
 
   },
@@ -772,17 +772,17 @@ var params={
                 data[j]["status"]="成功";
               }else{
                 data[j]["status"]="失败";
-              }              
+              }
               for (var i in data[j]){
 
                 if(i=="url"){
                   data_url.push(data[j][i]);
-                  delete data[j][i];                  
+                  delete data[j][i];
                 }else if(i=="id"){
                   delete data[j][i];
                 }else{
                   titles[j].push(i);
-                  v[j].push(data[j][i]);                  
+                  v[j].push(data[j][i]);
                 }
 
               }
@@ -805,7 +805,7 @@ var params={
   "submit_time":"查询提交时间",
 
   "submit-time":"查询时间"
-}    
+}
             var values=v,
                 column=titles[0];
             var allColumn=[];
@@ -834,8 +834,8 @@ var params={
                     "sLast": "尾页",
                     "sNext": "下一页",
                     "sPrevious": "上一页"
-                  }                    
-                }     
+                  }
+                }
               });
 
 
@@ -897,7 +897,7 @@ var params={
         }
         Query.delBoxy();
 
-    })    
+    })
     $(".tablesDownload").live("click",function(){
         var url=$(this).attr("rel");
         if(url=="null"){
@@ -906,7 +906,7 @@ var params={
           location.href="/sql/"+url;
         }
 
-    }) 
+    })
   },
   setDownQuery:function(current){
     $(".downResult").live("click",function(){
@@ -937,24 +937,15 @@ var params={
 
           });*/
 
-        return false;     
+        return false;
     })
-/*    $(".downResultLink").live("click",function(){
+    $(".downResultLink").live("click",function(){
         var csv_url=$("#sqlDownload").attr("data-url");
-        location.href="mailto:aaa@xxx.com?body="+csv_url;
-        return false;     
-    }) */   
-
-
-      $('.downResultLink').zclip({
-        copy: function() {        
-          return $(".sqlDownload",current).attr("data-url");
-        },
-        afterCopy:function(){
-          alert("复制成功");
-        }
-      });
-
+        console.log(location.href);
+        console.log(csv_url);
+        window.prompt ("请按CTRL+C复制到剪贴板", location.href + csv_url);
+        return false;
+    })
   },
   setDownload:function(){
     var sqlDown = $(".sqlDownload"),
