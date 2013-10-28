@@ -193,7 +193,7 @@ var Query = {
   },
   setCodeMirror:function(){
     Query.editor = CodeMirror.fromTextArea($(".sqlArea")[0], {
-      mode: "text/x-mariadb",
+      mode: "text/x-mysql",
       indentWithTabs: true,
       smartIndent: true,
       lineNumbers: true,
