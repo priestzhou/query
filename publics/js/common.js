@@ -150,7 +150,7 @@ var Common={
   setGrid:function(title,value,poptitle){//列名，值，弹窗标题，是否要开启选项
 
 	var params={
-	  "id":"查询ID",
+	  "id":"收集器ID",
 	  "name":"数据收集器名称",
 	  "recent-sync":"最后一次同步时间",
 	  "synced-data":"数据传输总量",
