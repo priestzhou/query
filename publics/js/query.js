@@ -306,7 +306,7 @@ var allColumn=[];
       "aoColumns": allColumn,
       sScrollXInner:"110%",
       oLanguage: {
-        "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
+        "sInfo": "共 "+ allcount + "条记录 _START_ 到 _END_ ",
         "sSearch": "搜索：",
         "sProcessing":"加载中...",
         "sZeroRecords":"无记录",
