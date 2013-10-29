@@ -916,7 +916,7 @@ var params={
           if(csv_url=="null"){
             Boxy.alert("无可下载的记录")
           }else{
-            location.href=csv_url;
+            location.href+=csv_url;
           }
 /*          $.ajax({
               url: '/sql/queries/'+qid,
