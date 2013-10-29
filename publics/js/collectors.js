@@ -141,7 +141,7 @@ var Collectors = {
       var html='<input class="colName popInput" type="text" value="'+name+'"/><input class="colUrl popInput" type="text" value="'+url+'"/><p><a id="colEditBtn" class="btn_blue_long" href="javascript:void(0);">确定</a></p>';
       Common.setPop("<span class='sqlIcon tipIcon'></span>修改路径",html);
 
-       $("#colEditBtn").live("click",function(){
+       $("#colEditBtn").one("click",function(){
           $.ajax({
                 url: "/sql/collectors/"+id,
                 type: 'put',
