@@ -50,8 +50,8 @@ var Common={
 		      delLink.find("strong").html('退出登录');
 		    }else{
 		    	delLink.find("strong").html('<a href="#" class="loginBtn">登录</a>');
-		    }	
-		
+		    }
+
 		delLink.click(function(){
 			$(this).find("strong").html('<a href="#" class="loginBtn">登录</a>');
 			$.cookie("user_id",null);
@@ -70,14 +70,13 @@ var Common={
 	        hide: 1000
 	      }
 	    });
-	    		
+
 	},
 	getSelectTime:function(from,main){
 		var startTime=from;
 		$(".sqlTime",main).html("");
 		var name=main.attr("name");
-		console.log(name);
-		
+
 		Common.timer={};
 		Common.timer[name]=setInterval(function(){
 			var currentTime=Common.getTimes(),
@@ -96,7 +95,7 @@ var Common={
 				remainM<=9?remainM="0"+remainM:remainM=remainM;
 				remainS<=9?remainS="0"+remainS:remainS=remainS;
 
-				$(".sqlTime",main).html(remainH+":"+remainM+":"+remainS)							
+				$(".sqlTime",main).html(remainH+":"+remainM+":"+remainS)
 		},1000);
 
 	},
@@ -113,7 +112,7 @@ var Common={
 				m<12?m=m+1:m=1;
 				h<=9?h="0"+h:h=h;
 				mi<=9?mi="0"+mi:mi=mi;
-				s<=9?s="0"+s:s=s;			
+				s<=9?s="0"+s:s=s;
 
 			return y+"-"+m+"-"+d+" "+h+":"+mi+":"+s;
 	},
@@ -157,7 +156,7 @@ var Common={
 	  "url":"收集器路径",
 	  "status":"状态",
 	  "操作":"操作"
-	}    
+	}
     var values=value,
         column=title;
     var allColumn=[];
@@ -186,11 +185,11 @@ var Common={
             "sLast": "尾页",
             "sNext": "下一页",
             "sPrevious": "上一页"
-          }                    
-        }     
+          }
+        }
       });
 
 
 
-  }    	
+  }
 }
