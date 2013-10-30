@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>datawize</title>
+	<title>数据查询</title>
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/codemirror.css" type="text/css" media="all"/>	
 	<link rel="stylesheet" href="css/zTreeStyle.css" type="text/css" media="all"/>
@@ -18,10 +18,10 @@
 		<div id="sqlWrapMain">
 
 	<div class="sqlBar">
-		<span class="loginInfo">尊敬的***，欢迎您！</span>
-		<a href="#"><span class="sqlIcon homeIcon"></span>首页</a>｜
+		<span class="loginInfo"></span>
+		<a href="home.html"><span class="sqlIcon homeIcon"></span>首页</a>｜
 		<a href="#"><span class="sqlIcon myIcon"></span>个人中心</a>｜
-		<a href="#"><span class="sqlIcon loginOutIcon"></span>退出登录</a>｜
+		<a class="loginOut" href="#"><span class="sqlIcon loginOutIcon"></span><strong>退出登录</strong></a>｜
 		<a href="#"><span class="sqlIcon helpIcon"></span>帮助</a>
 	</div>
 
@@ -29,19 +29,16 @@
 
 			<div class="row-fluid">
 				<div class="span4">
-					<a class="sqlIcon logoIcon" href="#"></a>
+					<a class="sqlIcon logoIcon" href="/sql/"></a>
 				</div>
-				<div class="span8" style="width:315px;float:right;">
+				<div class="span8" style="width:330px;float:right;">
 					<div class="btn-group" style="float:left;">
 						<a class="topMenu1 active" href="index.html" data-toggle="dropdown">
 							<span class="sqlIcon selectIcon"></span>
 							数据查询
-							<span class="sqlIcon downIcon"></span>
 						</a>
+						<a href="#" class="sqlIcon downIcon active" data-toggle="dropdown"></a>						
 						<ul class="dropdown-menu" style="margin-left:40px;">
-							<li>
-								<a style="margin-left:0;" class="openCommon" href="#">打开常用查询</a>
-							</li>
 							<li>
 								<a href="history.html" target="_blank">打开历史查询</a>
 							</li>
@@ -58,7 +55,7 @@
 
 	<div class="container">
 			<div class="sqlBread boxShadowStyle">
-				<a href="#">数据查询</a><span class="sqlIcon breadIcon"></span><a class="current" href="#">查询操作</a>
+				<a href="/sql/">数据查询</a><span class="sqlIcon breadIcon"></span><a class="current" href="#">查询操作</a>
 			</div>
 
 		<div class="row sqlRow">
@@ -103,18 +100,7 @@
 
 		<!-- sqlTable start-->
 	<div class="sqlRTable">	
-		<div class="sqlDownloadWrap">
-			<div class="btn_green" id="sqlDownload">下载查询结果
-				<p>
-					<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="javascript:void(0);">获取下载链接</a>				
-				</p>	
 
-			</div>
-		</div>
-
-
-		<div id="sqlTableWrap">
-		</div>
 	</div>	
 		<!-- sqlTable end-->
 
@@ -190,6 +176,23 @@ $(function(){
 								
 						</div>
 					</div>					
+</div>
+
+
+
+<div id="tableResult" style="display:none">
+		<div class="sqlDownloadWrap">
+			<div class="sqlDownload btn_green">下载查询结果
+				<p>
+					<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="javascript:void(0);">获取下载链接</a>				
+				</p>	
+
+			</div>
+		</div>
+
+
+		<div class="sqlTableWrap">
+		</div>	
 </div>
 </body>
 </html>

@@ -5,6 +5,8 @@ var Collectors = {
     this.addCollectors();
     this.delCollectors();
     this.editCollectors();
+    Common.delCookie();
+    Common.login();
 
   },
   addCollectors:function(){
@@ -58,8 +60,8 @@ var Collectors = {
               statusCode:{
                 401:function(){alert("暂时没有结果")},
                 200:function(data){
-                  if(!data.length){Boxy.alert("暂时没有常用查询");return;}
-                  var titles=[],v=[];
+                  if(!data.length){return;}
+                  var titles=[],v=[],data_id=[];
 
                   for (var j=0,l=data.length;j<l;j++){
                       titles[j]=[];
@@ -68,15 +70,21 @@ var Collectors = {
                         data[j]["recent-sync"]="--";
                         data[j]["synced-data"]="--";
                       }                      
-                      for (var i in data[j]){                 
-                        titles[j].push(i);
-                        v[j].push(data[j][i]);
+                      for (var i in data[j]){
+                          if(i=="id"){
+                            data_id.push(data[j][i]);
+                            delete data[j][i];
+                          }else{
+                            titles[j].push(i);
+                            v[j].push(data[j][i]);                    
+                          }                                         
+
                       }
 
-                      var del=Collectors.getTablesOp("del",data[j].id);
+                      var del=Collectors.getTablesOp("del",data_id[j]);
                       var edit=""
                       if(data[j].status=="no-sync"){
-                        var edit=Collectors.getTablesOp("edit",data[j].id+"__"+data[j].name+"__"+data[j].url)
+                        var edit=Collectors.getTablesOp("edit",data_id[j]+"__"+data[j].name+"__"+data[j].url)
                       }
                       v[j].push(del+" "+edit);              
                   }
