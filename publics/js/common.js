@@ -4,6 +4,58 @@ var Common={
 	},
 	setInput:function(){
 		$.sc2.placeholder({trigger:".popInput"});
+
+	},
+	  login:function(){
+	    var login_btn=$(".loginBtn");
+	    login_btn.live("click",function(){
+	      var html='<div class="loginPop">'+
+	      '<input type="email" name="email" value="" placeholder="请输入您的用户名" class="boxy-content popInput">'+
+	      '<input type="password" name="password" value="" placeholder="请输入您的密码" class="boxy-content popInput">'+
+	      '<a class="loginPost btn_blue_long" href="#">登录</a>'+
+	      '</div>';
+
+	      Common.setPop("<span class='sqlIcon tipIcon tipPerIcon'></span>登录 WhaleMiner",html);
+	      Common.setInput();
+	      return false;
+	    })
+
+	    $(".loginPost").live("click",function(){
+	        var email=$(".loginPop > input:eq(0)").val(),
+	            password=$(".loginPop > input:eq(1)").val();
+	        $.ajax({
+	            url: '/sql/',
+	            type: 'post',
+	            data:{
+	                      "email":email,
+	                      "password":password
+	            },
+	            dataType: 'json',
+	            error: function(){},
+	            success: function(data){
+
+	            },
+	            statusCode:{
+	              201:function(){location.href=location.href;},
+	              401:function(){Boxy.alert("用户名或密码不正确")}
+	            }
+
+	        });
+	    })
+	  },
+	delCookie:function(){
+		var delLink=$(".loginOut");
+		    var uid=$.cookie("user_id");
+		    if(uid){
+		      delLink.find("strong").html('退出登录');
+		    }else{
+		    	delLink.find("strong").html('<a href="#" class="loginBtn">登录</a>');
+		    }	
+		
+		delLink.click(function(){
+			$(this).find("strong").html('<a href="#" class="loginBtn">登录</a>');
+			$.cookie("user_id",null);
+		})
 	},
 	getTimes:function(){
 		return new Date().getTime();
@@ -24,8 +76,9 @@ var Common={
 		var startTime=from;
 		$(".sqlTime",main).html("");
 		var name=main.attr("name");
-
-		Common.timer={};Common.timer[name]=null;
+		console.log(name);
+		
+		Common.timer={};
 		Common.timer[name]=setInterval(function(){
 			var currentTime=Common.getTimes(),
 				ms=currentTime-startTime;
@@ -67,18 +120,6 @@ var Common={
 	isLogin:function(){
         $.get(
         "/sql/", {
-          "timestamp": Common.getTimes()
-        },
-        function(data,status) {
-
-        },
-        "json");
-	},
-	login:function(){
-        $.post(
-        "/sql/", {
-          "email":"a@b.c",
-          "password":"123",
           "timestamp": Common.getTimes()
         },
         function(data,status) {

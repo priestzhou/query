@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>datawize</title>
+	<title>数据收集器</title>
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/jquery.dataTables.css" type="text/css" media="all"/>
 	<link rel="stylesheet" href="css/boxy.css" type="text/css" media="all"/>
@@ -15,10 +15,10 @@
 		<div id="sqlWrapMain">
 
 	<div class="sqlBar">
-		<span class="loginInfo">尊敬的***，欢迎您！</span>
-		<a href="#"><span class="sqlIcon homeIcon"></span>首页</a>｜
+		<span class="loginInfo"></span>
+		<a href="home.html"><span class="sqlIcon homeIcon"></span>首页</a>｜
 		<a href="#"><span class="sqlIcon myIcon"></span>个人中心</a>｜
-		<a href="#"><span class="sqlIcon loginOutIcon"></span>退出登录</a>｜
+		<a class="loginOut" href="#"><span class="sqlIcon loginOutIcon"></span><strong>退出登录</strong></a>｜
 		<a href="#"><span class="sqlIcon helpIcon"></span>帮助</a>
 	</div>
 
@@ -26,19 +26,16 @@
 
 			<div class="row-fluid">
 				<div class="span4">
-					<a class="sqlIcon logoIcon" href="#"></a>
+					<a class="sqlIcon logoIcon" href="/sql/"></a>
 				</div>
-				<div class="span8" style="width:315px;float:right;">
+				<div class="span8" style="width:330px;float:right;">
 					<div class="btn-group" style="float:left;">
-						<a class="topMenu1" href="index.html" data-toggle="dropdown">
+						<a class="topMenu1" href="/sql/">
 							<span class="sqlIcon selectIcon"></span>
 							数据查询
-							<span class="sqlIcon downIcon"></span>
 						</a>
+						<a href="#" class="sqlIcon downIcon" data-toggle="dropdown"></a>						
 						<ul class="dropdown-menu" style="margin-left:40px;">
-							<li>
-								<a style="margin-left:0;" class="openCommon" href="#">打开常用查询</a>
-							</li>
 							<li>
 								<a href="history.html" target="_blank">打开历史查询</a>
 							</li>

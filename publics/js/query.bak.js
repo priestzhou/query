@@ -3,16 +3,13 @@ var Query = {
   init: function() {
     //Common.isLogin();
     $.blockUI.defaults.message="加载中...";
-    this.setTabs();
     this.setTreeData();
     this.setUi();
     this.setQuery();
     this.getQuery();
-    //this.setDownQuery();
+    this.setDownQuery();
     Common.slideClick();
     this.doTablesOp(); 
-    Common.delCookie();
-    Common.login();
 
   },
   setUi: function() {
@@ -35,39 +32,6 @@ var Query = {
     })*/
 
 
-  },
-  setTabsInt:function(data){
-          var main=Query.getCurrentTab();
-          var select_pro=$(".select_pro",main),select_ver=$(".select_ver",main),proArr=[],verArr=[];
-
-          //var verObj={};
-          for(var i=0,l=data.length;i<l;i++){
-            proArr.push('<option>'+data[i].name+'</option>');
-          }
-            for(var j=0,le=data[0].children.length;j<le;j++){
-              verArr.push('<option>'+data[0].children[j].name+'</option>');
-
-            }          
-
-          $("#sqlTabCon .select_pro").html(proArr.join(''));
-          $("#sqlTabCon .select_ver").html(verArr.join(''));
-          select_pro.html(proArr.join(''));
-          select_ver.html(verArr.join(''));
-
-          select_pro.change(function(){
-            var app=$(this).val(),verArr=[];
-            for(var i=0,l=data.length;i<l;i++){
-              if(data[i].name==app){
-                for(var j=0,le=data[i].children.length;j<le;j++){
-                  verArr.push('<option>'+data[i].children[j].name+'</option>');
-
-                }
-              }
-
-            }
-            select_ver.html(verArr.join(''));
-
-          })  
   },  
   setTreeData: function() {
 
@@ -144,20 +108,35 @@ var Query = {
             Query.setPopGrid(titles,values,"<span class='sqlIcon tipIcon tipTenIcon'></span>前十条参考数据",true);
             return false;
     })
-    $("#sqlTree").block();
+    $(".sqlRow").block();
     $.get(
       "/sql/meta", {
 
       },
       function(data,status) {
-        $("#sqlTree").unblock();
+        $(".sqlRow").unblock();
         if(status=="success"){
           //var data=[{"children":[{"children":[{"children":[{"children":[{"name":"item","type":"varchar(255)"},{"name":"id","type":"integer primary key autoincrement"}],"name":"smile","samples":[["hehe",1],["haha",2]],"type":"table"}],"name":"db","type":"namespace"}],"name":"panda","type":"namespace"}],"name":"WoW","type":"namespace"},{"children":[{"children":[{"children":[{"children":[{"name":"item","type":"varchar(255)"},{"name":"id","type":"integer primary key autoincrement"}],"name":"smile","samples":[["hehe",1],["haha",2]],"type":"table"}],"name":"db","type":"namespace"}],"name":"panda","type":"namespace"}],"name":"WoW","type":"namespace"}];
           tree = $.fn.zTree.init(t, setting, data);
           Query.setTreeHandle(tree);
-          Query.setTabsInt(data);
+
+          var select_pro=$(".select_pro"),select_ver=$(".select_ver"),proArr=[],verArr=[];
+          for(var i=0,l=data.length;i<l;i++){
+            proArr.push('<option>'+data[i].name+'</option>');
+            for(var j=0,le=data[i].children.length;j<le;j++){
+              verArr.push('<option>'+data[i].children[j].name+'</option>');
+            }
+          }
+
+          //$("#sqlTabCon .select_pro").html('<option>产品</option>'+proArr.join(''));
+          //$("#sqlTabCon .select_ver").html('<option>版本</option>'+verArr.join(''));
+          $("#sqlTabCon .select_pro").html(proArr.join(''));
+          $("#sqlTabCon .select_ver").html(verArr.join(''));          
+          Query.setTabs();
           //select_pro.append(proArr.join(''));
           //select_ver.append(verArr.join(''));
+
+
         }
       },
       "json");
@@ -256,14 +235,12 @@ var Query = {
       var main=Query.getCurrentTab();
       $(".progress",main).css("display","none");
       $(".sqlTime",main).html("");
-      $(".sqlRTable > div").hide();
-      $(".sqlRTable div[rel=tab"+i+"]").show()
 
       if(typeof value!=="undefined"){
         Query.editor[i].setOption("value", value);
       }
   },
-  setGrid: function(title,value,id,url) {
+  setGrid: function(title,value) {
 
 var values=value,
     column=title;
@@ -271,19 +248,9 @@ var allColumn=[];
     for (var i=0,l=column.length;i<l;i++){ 
       allColumn.push({"sTitle":column[i]});
     }
-    var main=Query.getCurrentTab(),mainName=main.attr("name"),
-        resultHtml='<div rel="'+mainName+'"></div>';
-    if($(".sqlRTable div[rel="+mainName+"]").length>0){
-      $(".sqlRTable div[rel="+mainName+"]").remove();
-    }    
-    $(".sqlRTable").append(resultHtml);
-    var currentResult=$(".sqlRTable div[rel="+mainName+"]");
-    currentResult.html($("#tableResult").html());
 
-    $(".sqlDownload",currentResult).attr("data-id",id).attr("data-url",url);
-    Query.setDownQuery(currentResult);
-    $(".sqlTableWrap",currentResult).html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="sqlTable"></table>');
-    $('#sqlTable',currentResult).dataTable({
+    $("#sqlTableWrap").html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="sqlTable"></table>');
+    $('#sqlTable').dataTable({
       "bProcessing": true,
       "sPaginationType": "full_numbers",
       bLengthChange: false,
@@ -306,7 +273,6 @@ var allColumn=[];
     });
 
   },
-
   setPopGrid:function(title,value,poptitle,option){//列名，值，弹窗标题，是否要开启选项
 
 var params={
@@ -468,7 +434,7 @@ var params={
                             var id=data.id;
                             var progressN=10;
 
-                            //$("#sqlDownload").attr("data-id",id);
+                            $("#sqlDownload").attr("data-id",id);
 
                               $.ajax({
                                   url: "/sql/queries/"+id+"/",
@@ -512,6 +478,9 @@ var params={
 
                                                     var progressV=Common.toBai(progressN++,100);       
 
+                						                          //var url ="/sql"+ data.url;
+                                            			    //$("#sqlDownload").attr("data-id",url);
+
                                                     $(".progress",main).css("display","inline-block");
                                                     if(progressN>=95){
                                                       $(".progress .bar",main).css("width","95%").text("95%");
@@ -529,15 +498,14 @@ var params={
                                                       $(".progress .bar",main).css("width","100%").text("100%");
                                                       setTimeout(function(){$(".progress",main).css("display","none");},800);
 
-                                                      //$("#sqlDownload").attr("data-url",url);
-                                                      
+                                                      $("#sqlDownload").attr("data-url",url);
 
-                                                      //$("#sqlDownload").css("visibility","visible");
+                                                      $("#sqlDownload").css("visibility","visible");
 
                                                       clearInterval(getResult[mainName]);
                                                       clearInterval(Common.timer[mainName]);
                                                       $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());                                
-                                                      Query.setGrid(data.result.titles,data.result.values,id,url);
+                                                      Query.setGrid(data.result.titles,data.result.values);
                                                     }else if(data.status=="failed"){
                                                       submitT.data("n",0);
                                                       submitT.unblock();
@@ -776,7 +744,6 @@ var params={
   "操作":"操作",
   "db":"数据库",
   "duration":"用时",
-  "submit_time":"查询提交时间",
 
   "submit-time":"查询时间"
 }    
@@ -882,11 +849,11 @@ var params={
 
     }) 
   },
-  setDownQuery:function(current){
+  setDownQuery:function(){
     $(".downResult").live("click",function(){
 
-          var qid=$(".sqlDownload",current).attr("data-id");
-          var csv_url=$(".sqlDownload",current).attr("data-url");
+          var qid=$("#sqlDownload").attr("data-id");
+          var csv_url=$("#sqlDownload").attr("data-url");
           if(csv_url=="null"){
             Boxy.alert("无可下载的记录")
           }else{
@@ -922,7 +889,7 @@ var params={
 
       $('.downResultLink').zclip({
         copy: function() {        
-          return $(".sqlDownload",current).attr("data-url");
+          return $("#sqlDownload").attr("data-url");
         },
         afterCopy:function(){
           alert("复制成功");
@@ -931,14 +898,14 @@ var params={
 
   },
   setDownload:function(){
-    var sqlDown = $(".sqlDownload"),
+    var sqlDown = $("#sqlDownload"),
         tipHtml='<a class="downResult" href="#">下载结果</a> | <a class="downResultLink" href="javascript:void(0);">获取下载链接</a>';
     //Common.setTooltips(sqlDown,tipHtml);
-    sqlDown.live("mouseenter",function(){
+    sqlDown.mouseenter(function(){
       $(this).find("p").css("visibility","visible");
 
     })
-    sqlDown.live("mouseleave",function(){
+    sqlDown.mouseleave(function(){
       $(this).find("p").css("visibility","hidden");
 
     })
