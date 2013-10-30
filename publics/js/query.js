@@ -333,7 +333,8 @@ var params={
   "version":"版本",
   "操作":"操作",
   "db":"数据库",
-  "submit_time":"查询提交时间"
+  "submit-time":"查询提交时间",
+  "duration": "耗时"
 }
     var values=value,
         column=title;
@@ -703,51 +704,32 @@ var params={
           "timestamp": Common.getTimes()
         },
         function(data,status) {
-          if(!data.length){Boxy.alert("暂时没有历史查询");return;}
-          var titles=[],v=[],data_url=[];
+          if(!data.length){return;}
+          var titles = ["query", "status", "submit-time", "duration", "操作"];
+          var v=[];
 
           for (var j=0,l=data.length;j<l;j++){
-              titles[j]=[];
               v[j]=[];
-              if(data[j]["status"]=="succeeded"){
-                data[j]["status"]="成功";
-              } else if (data[j]["status"]=="failed"){
-                data[j]["status"]="失败";
+
+              v[j].push(data[j].query);
+
+              if (data[j].status == "succeeded") {
+                v[j].push("成功");
+              } else if (data[j].status == "failed") {
+                v[j].push("失败");
               } else {
-                data[j]["status"]="运行中";
-              }
-              //data[j]["submit-time"]=Common.formatTime(data[j]["submit-time"]);
-              for (var i in data[j]){
-
-                if(i=="url"){
-                  data_url.push(data[j][i]);
-                  delete data[j][i];
-                }else if(i=="duration" || i=="id"){
-                  delete data[j][i];
-                }else{
-                  titles[j].push(i);
-                  if (i=="status") {
-                    if (data[j][i]=="succeeded") {
-                      v[j].push("成功");
-                    } else if (data[j][i]=="failed") {
-                      v[j].push("失败");
-                    } else {
-                      v[j].push("运行中");
-                    }
-                  } else {
-                    v[j].push(data[j][i]);
-                  }
-                }
-
+                v[j].push("运行中");
               }
 
-              //var del=Query.getTablesOp("del",data[j].id),
-                  var edit=Query.getTablesOp("edit",data[j].query),
-                  download=Query.getTablesOp("download",data_url[j]);
+              v[j].push(new Date(data[j]["submit-time"]).toLocaleString());
+
+              v[j].push(data[j].duration / 1000);
+
+              var edit=Query.getTablesOp("edit",data[j].query),
+                  download=Query.getTablesOp("download",data[j].url);
               v[j].push(edit+" "+download);
           }
-          titles[0].push("操作");
-          Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon tipHistoryIcon'></span>历史查询");
+          Query.setPopGrid(titles,v,"<span class='sqlIcon tipIcon tipHistoryIcon'></span>历史查询");
         },
         "json");
         return false;
