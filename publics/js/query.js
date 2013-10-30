@@ -743,39 +743,35 @@ var params={
           "timestamp": Common.getTimes()
         },
         function(data,status) {
-          if(!data.length){Boxy.alert("暂时没有历史查询");return;}
-          var titles=[],v=[],data_url=[];;
+          if(!data.length){return;}
+          var titles = ["query", "status", "submit-time", "duration", "操作"];
+          var v=[];
 
           for (var j=0,l=data.length;j<l;j++){
-              titles[j]=[];
               v[j]=[];
-              data[j]["duration"]=data[j]["duration"]/1000+"秒";
-              if(data[j]["status"]==1){
-                data[j]["status"]="成功";
-              }else{
-                data[j]["status"]="失败";
-              }
-              for (var i in data[j]){
 
-                if(i=="url"){
-                  data_url.push(data[j][i]);
-                  delete data[j][i];
-                }else if(i=="id"){
-                  delete data[j][i];
-                }else{
-                  titles[j].push(i);
-                  v[j].push(data[j][i]);
-                }
+              v[j].push(data[j].query);
 
+              if (data[j].status == "succeeded") {
+                v[j].push("成功");
+              } else if (data[j].status == "failed") {
+                v[j].push("失败");
+              } else {
+                v[j].push("运行中");
               }
 
-              var download=Query.getTablesOp("download",data_url[j]);
-              v[j].push(download);
+              v[j].push(new Date(data[j]["submit-time"]).toLocaleString());
+
+              v[j].push(data[j].duration / 1000);
+
+              var edit=Query.getTablesOp("edit",data[j].query),
+                  download=Query.getTablesOp("download",data[j].url);
+              v[j].push(edit+" "+download);
           }
-          titles[0].push("操作");
-          //Query.setPopGrid(titles[0],v,"<span class='sqlIcon tipIcon'></span>历史查询");
+
 var params={
   "id":"查询ID",
+  "item":"item",
   "query":"查询内容",
   "name":"查询名称",
   "status":"查询状态",
@@ -783,13 +779,11 @@ var params={
   "version":"版本",
   "操作":"操作",
   "db":"数据库",
-  "duration":"用时",
-  "submit_time":"查询提交时间",
-
-  "submit-time":"查询时间"
+  "submit-time":"查询提交时间",
+  "duration": "耗时"
 }
             var values=v,
-                column=titles[0];
+                column=titles;
             var allColumn=[];
             for (var i=0,l=column.length;i<l;i++){
               allColumn.push({"sTitle":params[column[i]]});
