@@ -138,46 +138,44 @@ var Collectors = {
 
         var id=data[0],name=data[1],url=data[2];
 
-      var html='<input class="colName popInput" type="text" value="'+name+'"/><input class="colUrl popInput" type="text" value="'+url+'"/><p><a id="colEditBtn" class="btn_blue_long" href="javascript:void(0);">确定</a></p>';
+      var html='<input type="hidden" id="colEditId" value="'+id+'"><input class="colName popInput" type="text" value="'+name+'"/><input class="colUrl popInput" type="text" value="'+url+'"/><p><a id="colEditBtn" class="btn_blue_long" href="javascript:void(0);">确定</a></p>';
       Common.setPop("<span class='sqlIcon tipIcon'></span>修改路径",html);
+    });
 
-       $("#colEditBtn").one("click",function(){
-          $.ajax({
-                url: "/sql/collectors/"+id,
-                type: 'put',
-                data:{
-                          "name": $(".colName").val(),
-                          "url": $(".colUrl").val()
-                },
-                dataType: 'json',
-                error: function(){},
-                success: function(data){
+     $("#colEditBtn").live("click",function(){
+        $.ajax({
+              url: "/sql/collectors/"+ $("#colEditId").val(),
+              type: 'put',
+              data:{
+                        "name": $(".colName").val(),
+                        "url": $(".colUrl").val()
+              },
+              dataType: 'json',
+              error: function(){},
+              success: function(data){
 
+              },
+              statusCode:{
+                404:function(){
+                  Boxy.alert("该收集器不存在");
                 },
-                statusCode:{
-                  404:function(){
-                    Boxy.alert("该收集器不存在");
-                  },
-                  401:function(){},
-                  403:function(){},
-                  409:function(){
-                    Boxy.alert("重复的收集器名称或url");
-                  },
-                  200:function(data){
-                    Query.delBoxy();
-                    Collectors.getCollectors();
-                  },
-                  500:function(){
-                    Boxy.alert("服务器错误");
-                  }
+                401:function(){},
+                403:function(){},
+                409:function(){
+                  Boxy.alert("重复的收集器名称或url");
+                },
+                200:function(data){
+                  Query.delBoxy();
+                  Collectors.getCollectors();
+                },
+                500:function(){
+                  Boxy.alert("服务器错误");
                 }
+              }
 
-            });
+          });
 
-       })
-
-    })
-
+     });
 
   },
   getTablesOp:function(type,value){
