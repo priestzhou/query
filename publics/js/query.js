@@ -277,7 +277,7 @@ var Query = {
         Query.editor[i].setOption("value", value);
       }
   },
-  setGrid: function(title,value,id,url) {
+  setGrid: function(title,value,id,url,total) {
 
 var values=value,
     column=title;
@@ -306,7 +306,7 @@ var allColumn=[];
       "aoColumns": allColumn,
       sScrollXInner:"110%",
       oLanguage: {
-        "sInfo": "共 "+ allcount + "条记录 _START_ 到 _END_ ",
+        "sInfo": "共 "+ total + "条记录 _START_ 到 _END_ ",
         "sSearch": "搜索：",
         "sProcessing":"加载中...",
         "sZeroRecords":"无记录",
@@ -551,7 +551,7 @@ var params={
                                                       clearInterval(getResult[mainName]);
                                                       clearInterval(Common.timer[mainName]);
                                                       $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());
-                                                      Query.setGrid(data.result.titles,data.result.values,id,url);
+                                                      Query.setGrid(data.result.titles,data.result.values,id,url,data.count);
                                                     }else if(data.status=="failed"){
                                                       submitT.data("n",0);
                                                       submitT.unblock();
@@ -940,9 +940,7 @@ var params={
         return false;
     })
     $(".downResultLink").live("click",function(){
-        var csv_url=$("#sqlDownload").attr("data-url");
-        console.log(location.href);
-        console.log(csv_url);
+        var csv_url=$(".sqlDownload",current).attr("data-url");
         window.prompt ("请按CTRL+C复制到剪贴板", location.href + csv_url);
         return false;
     })
