@@ -59,28 +59,27 @@ var Collectors = {
                 401:function(){alert("暂时没有结果")},
                 200:function(data){
                   if(!data.length){return;}
-                  var titles=["name", "url", "status", "recent-sync", "synced-data"];
-
-                  for (var j=0,l=data.length;j<l;j++){
-                      if(data[j].status=="no-sync"){
-                        data[j]["recent-sync"]="--";
-                        data[j]["synced-data"]="--";
-                      }
-                  }
+                  var titles=["name", "url", "status", "recent-sync", "操作"];
                   var v=[];
                   for (var j=0,l=data.length;j<l;j++){
                       v[j] = [];
-                      for (var i in titles) {
-                        i = titles[i];
-                        if (data[j][i] == "no-sync") {
-                          v[j].push("未同步");
-                        } else if (data[j][i] == "running") {
-                          v[j].push("运行中");
-                        } else if (data[j][i] == "stopped") {
-                          v[j].push("已停止");
-                        } else {
-                          v[j].push(data[j][i]);
-                        }
+                      v[j].push(data[j].name);
+                      v[j].push(data[j].url);
+
+                      if (data[j].status == "no-sync") {
+                        v[j].push("待同步");
+                      } else if (data[j].status == "running") {
+                        v[j].push("运行中");
+                      } else if (data[j].status == "stopped") {
+                        v[j].push("已停止");
+                      } else if (data[j].status == "abandoned") {
+                        v[j].push("已废弃");
+                      }
+
+                      if (data[j]["recent-sync"] == undefined || data[j]["recent-sync"] == null) {
+                        v[j].push('--');
+                      } else {
+                        v[j].push(new Date(data[j]["recent-sync"]).toLocaleString())
                       }
 
                       var del=Collectors.getTablesOp("del",data[j].id);
@@ -91,7 +90,7 @@ var Collectors = {
                       v[j].push(del+" "+edit);
                   }
 
-                  titles.push("操作");
+                  titles.push();
                   Common.setGrid(titles,v,"<span class='sqlIcon tipIcon'></span>常用查询");
                 }
               }
@@ -179,10 +178,10 @@ var Collectors = {
   getTablesOp:function(type,value){
     var opName="",cls="";
     if(type=="del"){
-      opName="删除";
+      opName="废弃";
       cls="collectorDel";
     }else if(type=="edit"){
-      opName="修改路径";
+      opName="修改";
       cls="collectorEdit";
     }
     var html='<a class='+cls+' rel="'+value+'" href="javascript:void(0);">'+opName+'</a>';

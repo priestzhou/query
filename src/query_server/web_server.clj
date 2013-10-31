@@ -456,19 +456,28 @@
         :url "http://1.1.1.1:1111/xixi"
         :status "running"
         :recent-sync (to-long (time/now))
-        :synced-data 12345
     }
     2 {
         :name "hehe"
         :url "http://2.2.2.2:2222/hehe"
         :status "stopped"
         :recent-sync (to-long (time/now))
-        :synced-data 54321
     }
     3 {
         :name "haha"
         :url "http://3.3.3.3:3333/haha"
         :status "no-sync"
+    }
+    4 {
+        :name "hoho"
+        :url "http://4.4.4.4:4444/hoho"
+        :status "abandoned"
+        :recent-sync (to-long (time/now))
+    }
+    5 {
+        :name "yoyo"
+        :url "http://5.5.5.5:5555/yoyo"
+        :status "abandoned"
     }
 }))
 
