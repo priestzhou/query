@@ -333,7 +333,7 @@ var params={
   "version":"版本",
   "操作":"操作",
   "db":"数据库",
-  "submit-time":"查询提交时间",
+  "submit_time":"查询提交时间",
   "duration": "耗时"
 }
     var values=value,
@@ -705,7 +705,7 @@ var params={
         },
         function(data,status) {
           if(!data.length){return;}
-          var titles = ["query", "status", "submit-time", "duration", "操作"];
+          var titles = ["query", "status", "submit_time", "duration", "操作"];
           var v=[];
 
           for (var j=0,l=data.length;j<l;j++){
@@ -721,9 +721,9 @@ var params={
                 v[j].push("运行中");
               }
 
-              v[j].push(new Date(data[j]["submit-time"]).toLocaleString());
+              v[j].push(new Date(data[j].submit_time).toLocaleString());
 
-              v[j].push(data[j].duration / 1000);
+              v[j].push(Math.round(data[j].duration / 1000) + " 秒");
 
               var edit=Query.getTablesOp("edit",data[j].query),
                   download=Query.getTablesOp("download",data[j].url);
@@ -744,7 +744,7 @@ var params={
         },
         function(data,status) {
           if(!data.length){return;}
-          var titles = ["query", "status", "submit-time", "duration", "操作"];
+          var titles = ["query", "status", "submit_time", "duration", "操作"];
           var v=[];
 
           for (var j=0,l=data.length;j<l;j++){
@@ -760,9 +760,9 @@ var params={
                 v[j].push("运行中");
               }
 
-              v[j].push(new Date(data[j]["submit-time"]).toLocaleString());
+              v[j].push(new Date(data[j].submit_time).toLocaleString());
 
-              v[j].push(data[j].duration / 1000);
+              v[j].push(Math.round(data[j].duration / 1000) + " 秒");
 
               var edit=Query.getTablesOp("edit",data[j].query),
                   download=Query.getTablesOp("download",data[j].url);
@@ -779,7 +779,7 @@ var params={
   "version":"版本",
   "操作":"操作",
   "db":"数据库",
-  "submit-time":"查询提交时间",
+  "submit_time":"查询提交时间",
   "duration": "耗时"
 }
             var values=v,

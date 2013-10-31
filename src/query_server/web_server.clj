@@ -100,7 +100,7 @@
                             :status "succeeded"
                             :progress [total-stages total-stages]
                             :url (format "queries/%d/csv" qid)
-                            :duration (- now (:submit-time (@results qid)))
+                            :duration (- now (:submit_time (@results qid)))
                             :count 54321
                     )
                 )
@@ -167,7 +167,7 @@
                     :status "running"
                     :query query
                     :log ""
-                    :submit-time now
+                    :submit_time now
                 })
             )
             (do-query qid query)
@@ -418,7 +418,7 @@
                                 :id k
                                 :query query
                                 :status status
-                                :submit-time submit-time
+                                :submit_time submit-time
                             }
                             (if duration {:duration duration} {})
                             (if url {:url url} {})
