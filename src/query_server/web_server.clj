@@ -38,7 +38,7 @@
                 :headers {
                     "Content-Type" "text/html"
                 }
-                :cookies {"user_id" {:value "12345" :path "/sql/" :max-age 36000}}
+                :cookies {"user_id" {:value "12345" :path "/sql/"}}
                 :body "
 <!doctype html>
 <html>
