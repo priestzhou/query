@@ -26,8 +26,6 @@ var Query = {
     Common.slideClick();
     this.doTablesOp();
     Common.delCookie();
-    Common.login();
-
   },
   setUi: function() {
     this.setDownload();

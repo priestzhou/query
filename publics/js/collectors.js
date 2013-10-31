@@ -6,8 +6,6 @@ var Collectors = {
     this.delCollectors();
     this.editCollectors();
     Common.delCookie();
-    Common.login();
-
   },
   addCollectors:function(){
     var add=$("#addCollectors");
