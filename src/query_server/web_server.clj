@@ -101,6 +101,7 @@
                             :progress [total-stages total-stages]
                             :url (format "queries/%d/csv" qid)
                             :duration (- now (:submit_time (@results qid)))
+                            :count 54321
                     )
                 )
                 (Thread/sleep 3000)
