@@ -653,19 +653,15 @@
     ))
 )
 
-(defn edit-collector [params cookies body]
+(defn edit-collector [params cookies]
     (try+
         (authenticate cookies)
         (let [
             cid (Long/parseLong (:cid params))
-            body (-> body
-                (io/reader :encoding "UTF-8")
-                (json/read :key-fn keyword)
-            )
-            name (:name body)
-            url (:url body)
+            name (:name params)
+            url (:url params)
             ]
-            (println (format "PUT /sql/collectors/%d" cid) cookies body)
+            (println (format "PUT /sql/collectors/%d" cid) cookies name url)
             (dosync
                 (does-collector-exist? cid)
                 (is-collector-no-sync? cid)
@@ -756,7 +752,7 @@
                 (delete-collector params cookies)
             )
             (PUT "/sql/collectors/:cid" {:keys [params cookies body]}
-                (edit-collector params cookies body)
+                (edit-collector params cookies)
             )
 
             (route/files "/sql/" {:root (:dir opts) :allow-symlinks? true})
