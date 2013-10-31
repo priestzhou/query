@@ -61,10 +61,10 @@
             (contains? cookies "user_id")
             (= (:value (cookies "user_id")) "12345")
         )
-        (throw+ 
+        (throw+
             {
-                :status 401 
-                :headers {"Content-Type" "application/json"} 
+                :status 401
+                :headers {"Content-Type" "application/json"}
                 :body (json/write-str {})
             }
         )
@@ -81,8 +81,8 @@
                 (let [
                     log (-> (@results qid) (:log) (.concat (format "stage %d\n" current-stage)))
                     ]
-                    (alter results 
-                        update-in [qid] 
+                    (alter results
+                        update-in [qid]
                         assoc :progress [current-stage total-stages] :log log
                     )
                 )
@@ -95,12 +95,12 @@
                 (dosync
                     (alter results
                         update-in [qid]
-                        assoc 
-                            :result result 
-                            :status "succeeded" 
+                        assoc
+                            :result result
+                            :status "succeeded"
                             :progress [total-stages total-stages]
                             :url (format "queries/%d/csv" qid)
-                            :duration (- now (:submit-time (@results qid)))
+                            :duration (- now (:submit_time (@results qid)))
                     )
                 )
                 (Thread/sleep 3000)
@@ -135,7 +135,7 @@
                     (future (progress qid result progress-stages 0))
                 )
                 (throw (SQLException.))
-                
+
             )
         (catch SQLException ex
             (dosync
@@ -163,10 +163,10 @@
             ]
             (dosync
                 (alter results assoc qid {
-                    :status "running" 
+                    :status "running"
                     :query query
-                    :log "" 
-                    :submit-time now
+                    :log ""
+                    :submit_time now
                 })
             )
             (do-query qid query)
@@ -319,7 +319,7 @@
                 (check-saved-query-no-duplicated-name? name)
 
                 (alter saved-queries assoc new-id {
-                    :name name 
+                    :name name
                     :app app
                     :version version
                     :db db
@@ -407,7 +407,7 @@
     (try+
         (authenticate cookies)
         (let [
-            r (dosync 
+            r (dosync
                 (into []
                     (for [
                         [k v] @results
@@ -417,7 +417,7 @@
                                 :id k
                                 :query query
                                 :status status
-                                :submit-time submit-time
+                                :submit_time submit-time
                             }
                             (if duration {:duration duration} {})
                             (if url {:url url} {})
@@ -455,19 +455,30 @@
         :url "http://1.1.1.1:1111/xixi"
         :status "running"
         :recent-sync (to-long (time/now))
-        :synced-data 12345
     }
     2 {
         :name "hehe"
         :url "http://2.2.2.2:2222/hehe"
         :status "stopped"
         :recent-sync (to-long (time/now))
-        :synced-data 54321
     }
     3 {
         :name "haha"
         :url "http://3.3.3.3:3333/haha"
         :status "no-sync"
+    }
+    4 {
+        :name "hoho"
+        :url "http://4.4.4.4:4444/hoho"
+        :status "abandoned"
+        :reason "really?"
+    }
+    5 {
+        :name "yoyo"
+        :url "http://5.5.5.5:5555/yoyo"
+        :status "abandoned"
+        :reason "really?"
+        :recent-sync (to-long (time/now))
     }
 }))
 
@@ -482,8 +493,8 @@
         (when-not (empty? cids)
             (throw+
                 {
-                    :status 409 
-                    :headers {"Content-Type" "application/json"} 
+                    :status 409
+                    :headers {"Content-Type" "application/json"}
                     :body (json/write-str {
                         :error msg
                         :collector (first cids)
@@ -535,8 +546,8 @@
         (when-not (= (:status v) "no-sync")
             (throw+
                 {
-                    :status 403 
-                    :headers {"Content-Type" "application/json"} 
+                    :status 403
+                    :headers {"Content-Type" "application/json"}
                     :body "null"
                 }
             )
@@ -548,8 +559,8 @@
     (when-not (contains? @collectors cid)
         (throw+
             {
-                :status 404 
-                :headers {"Content-Type" "application/json"} 
+                :status 404
+                :headers {"Content-Type" "application/json"}
                 :body "null"
             }
         )
@@ -610,16 +621,28 @@
 
 (defn delete-collector [params cookies]
     (try+
-        (let [cid (-> params (:cid) (Long/parseLong))]
+        (let [
+            cid (-> params (:cid) (Long/parseLong))
+            reason (-> params (:reason))
+            ]
             (println (format "DELETE /sql/collectors/%d" cid) cookies)
             (authenticate cookies)
+            (when-not reason
+                (throw+ {
+                    :status 409
+                    :headers {"Content-Type" "application/json"}
+                    :body (json/write-str {
+                        :error "require reason"
+                    })
+                })
+            )
             (dosync
                 (does-collector-exist? cid)
 
-                (alter collectors dissoc cid)
+                (alter collectors update-in [cid] assoc :reason reason)
                 {
-                    :status 200 
-                    :headers {"Content-Type" "application/json"} 
+                    :status 200
+                    :headers {"Content-Type" "application/json"}
                     :body (json/write-str {})
                 }
             )
@@ -634,8 +657,8 @@
         (authenticate cookies)
         (let [
             cid (Long/parseLong (:cid params))
-            body (-> body 
-                (io/reader :encoding "UTF-8") 
+            body (-> body
+                (io/reader :encoding "UTF-8")
                 (json/read :key-fn keyword)
             )
             name (:name body)
@@ -650,8 +673,8 @@
 
                 (alter collectors update-in [cid] assoc :name name :url url)
                 {
-                    :status 200 
-                    :headers {"Content-Type" "application/json"} 
+                    :status 200
+                    :headers {"Content-Type" "application/json"}
                     :body (json/write-str {})
                 }
             )
@@ -733,10 +756,6 @@
             )
             (PUT "/sql/collectors/:cid" {:keys [params cookies body]}
                 (edit-collector params cookies body)
-            )
-
-            (GET "/sql/admin.html" {:keys [cookies]}
-                (admin-main cookies (:dir opts))
             )
 
             (route/files "/sql/" {:root (:dir opts) :allow-symlinks? true})
