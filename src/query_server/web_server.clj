@@ -228,27 +228,51 @@
                                 :name "panda"
                                 :children [
                                     {
-                                        :type "namespace"
-                                        :name "db"
+                                        :type "table"
+                                        :name "smile"
                                         :children [
                                             {
-                                                :type "table"
-                                                :name "smile"
-                                                :children [
-                                                    {
-                                                        :name "item"
-                                                        :type "varchar(255)"
-                                                    }
-                                                    {
-                                                        :name "id"
-                                                        :type "integer primary key autoincrement"
-                                                    }
-                                                ]
-                                                :samples [
-                                                    ["hehe" 1]
-                                                    ["haha" 2]
-                                                ]
+                                                :name "item"
+                                                :type "varchar(255)"
                                             }
+                                            {
+                                                :name "id"
+                                                :type "integer primary key autoincrement"
+                                            }
+                                        ]
+                                        :samples [
+                                            ["hehe" 1]
+                                            ["haha" 2]
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    {
+                        :type "namespace"
+                        :name "ns2"
+                        :children [
+                            {
+                                :type "namespace"
+                                :name "ver2"
+                                :children [
+                                    {
+                                        :type "table"
+                                        :name "smile"
+                                        :children [
+                                            {
+                                                :name "item"
+                                                :type "varchar(255)"
+                                            }
+                                            {
+                                                :name "id"
+                                                :type "integer"
+                                            }
+                                        ]
+                                        :samples [
+                                            ["hehe" 1]
+                                            ["haha" 2]
                                         ]
                                     }
                                 ]
