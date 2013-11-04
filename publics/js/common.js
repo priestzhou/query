@@ -1,6 +1,9 @@
 var Common={
 	init:function(){
-		this.setInput();
+		this.setInput();		
+	},
+	uiInit:function(){
+		this.selectDown();
 	},
 	setInput:function(){
 		$.sc2.placeholder({trigger:".popInput"});
@@ -49,12 +52,14 @@ var Common={
 		    if(uid){
 		      delLink.find("strong").html('退出登录');
 		    }else{
-		    	delLink.find("strong").html('<a href="#" class="loginBtn">登录</a>');
+		    	location.href="/sql/home.html";
+		    	//delLink.find("strong").html('<a href="#" class="loginBtn">登录</a>');
 		    }	
 		
 		delLink.click(function(){
-			$(this).find("strong").html('<a href="#" class="loginBtn">登录</a>');
-			$.cookie("user_id",null);
+			//$(this).find("strong").html('<a href="#" class="loginBtn">登录</a>');
+			$.cookie("user_id",null,{path:"/sql/"});
+			location.href="/sql/home.html";
 		})
 	},
 	getTimes:function(){
@@ -72,14 +77,10 @@ var Common={
 	    });
 	    		
 	},
-	getSelectTime:function(from,main){
+	getSelectTime:function(from,mainName){
 		var startTime=from;
-		$(".sqlTime",main).html("");
-		var name=main.attr("name");
-		console.log(name);
 		
-		Common.timer={};
-		Common.timer[name]=setInterval(function(){
+		Common.timer[mainName]=setInterval(function(){
 			var currentTime=Common.getTimes(),
 				ms=currentTime-startTime;
 
@@ -96,7 +97,7 @@ var Common={
 				remainM<=9?remainM="0"+remainM:remainM=remainM;
 				remainS<=9?remainS="0"+remainS:remainS=remainS;
 
-				$(".sqlTime",main).html(remainH+":"+remainM+":"+remainS)							
+				$("#sqlTab .body").find(".main[name="+mainName+"] .sqlTime").html(remainH+":"+remainM+":"+remainS);							
 		},1000);
 
 	},
@@ -156,6 +157,7 @@ var Common={
 	  "synced-data":"数据传输总量",
 	  "url":"收集器路径",
 	  "status":"状态",
+	  "reason":"原因",
 	  "操作":"操作"
 	}    
     var values=value,
@@ -174,6 +176,8 @@ var Common={
         "sPaginationType": "full_numbers",
         bLengthChange:false,
         bSort:true,
+        "aaSorting": [[ 2, "desc" ]],
+        bSortClasses:false,
         "aaData": values,
         "aoColumns":allColumn,
         sScrollX:"100%",
@@ -191,6 +195,52 @@ var Common={
       });
 
 
+
+  },
+  formatArr:function(arr){
+ 	  var column=[];	
+      for (var j=0,l=arr.length;j<l;j++){
+        if(typeof arr[j]!="undefined"){
+          column.push(arr[j]);
+        }
+      }
+      return column;
+  },
+  helpTabs:function(){
+	var helpList=$(".helpList a"),helpCon=$(".helpCon .helpDetail");
+
+	helpList.click(function(){
+		var index=helpList.index($(this));
+		$(this).parent().siblings().find("span").removeClass("openIcon").addClass("closeIcon");
+		$(this).find("span").removeClass("closeIcon").addClass("openIcon");
+		$(this).parent().siblings().removeClass("active");
+		$(this).parent().addClass("active");	
+		helpCon.eq(index).show().siblings().hide();
+
+		return false;
+
+	})  	
+  },
+  selectDown:function(){
+  	var selectDown=$(".topMenu1"),select=$(".selectMenu"),timer;
+  	selectDown.mouseenter(function(){
+  		$(this).addClass("activeDown");
+  		$(this).next().show();
+  	})
+  	selectDown.mouseleave(function(){
+  		var t=$(this);
+  		timer=setTimeout(function(){
+  			t.removeClass("activeDown");
+  			t.next().hide();
+  		},800)
+  	})  	
+
+  	select.hover(function(){
+  		clearTimeout(timer);
+  	},function(){
+  		$(this).hide();
+  		$(this).prev().removeClass("activeDown");
+  	})
 
   }    	
 }

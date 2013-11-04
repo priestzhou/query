@@ -13,6 +13,8 @@ var Query = {
     this.doTablesOp(); 
     Common.delCookie();
     Common.login();
+    Query.getResult={};
+    Common.uiInit();
 
   },
   setUi: function() {
@@ -28,11 +30,11 @@ var Query = {
 
     })
 
-/*    dom.hover(function(){
-      $(this).next().show();
+    dom.hover(function(){
+      $(this).next().css("visibility","visible");
     },function(){
-      $(this).next().hide();
-    })*/
+      //$(this).next().css("visibility","hidden");
+    })
 
 
   },
@@ -71,11 +73,11 @@ var Query = {
   },  
   setTreeData: function() {
 
-    var uid=$.cookie("user_id");
+/*    var uid=$.cookie("user_id");
     if(!uid){
       location.href="/sql/";
       return;
-    }
+    }*/
 
     var setting = {
       data: {
@@ -90,10 +92,11 @@ var Query = {
       },
       callback: {
         onClick: function() {
-          var t = tree.getSelectedNodes(),
+          var t = Query.tree.getSelectedNodes(),
+              type = t[0].type,
+              name = t[0].name;
+          var currentValue=Query.getCurrentValue();
 
-            type = t[0].type,
-            name = t[0].name;
 
 
 
@@ -101,9 +104,16 @@ var Query = {
             var ver=t[0].getParentNode(),
             app=ver.getParentNode(),
             verName=ver.name,
-            appName=app.name;                        
-            var html = "`"+appName+"`.`"+verName+"`.`"+name+"`";//'select * from '
-            //Query.setAddTabs(Query.tabs,html);
+            appName=app.name,html="";
+
+            if(appName==currentValue.app && verName==currentValue.ver){
+              html="`"+name+"`";
+            }else if(appName==currentValue.app && verName!=currentValue.ver){
+              html="`"+verName+"`.`"+name+"`";
+            }else{
+              html="`"+appName+"`.`"+verName+"`.`"+name+"`";
+            }
+
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);           
             return false;
@@ -111,10 +121,20 @@ var Query = {
             return false;
           } else {
             var pNode = t[0].getParentNode(),
+                pNodeName=pNode.name,
                 ver=pNode.getParentNode(),
-                app=ver.getParentNode(),
-                html = "`"+app.name+"`.`"+ver.name+"`.`"+pNode.name+"`.`"+name+"`";// + ' from ' + pNode.name
-            //Query.setAddTabs(Query.tabs,html);
+                verName=ver.name,
+                appName=ver.getParentNode().name,
+                html = "";
+
+            if(appName==currentValue.app && verName==currentValue.ver){
+              html="`"+pNodeName+"`.`"+name+"`";
+            }else if(appName==currentValue.app && verName!=currentValue.ver){
+              html="`"+verName+"`.`"+pNodeName+"`.`"+name+"`";
+            }else{
+              html="`"+appName+"`.`"+verName+"`.`"+pNodeName+"`.`"+name+"`";
+            } 
+
             var currentV=Query.getCurrentEditor().getValue();
             Query.getCurrentEditor().setValue(currentV+" "+html);
             return false;
@@ -124,11 +144,11 @@ var Query = {
     };
 //tree data
 
-    var t = $("#sqlTree"),tree;   
+    var t = $("#sqlTree");   
 
     $(".selectTenL",t).live("click",function(){
             var tId=$(this).parent().attr("id"),
-                t= tree.getNodeByTId(tId);
+                t= Query.tree.getNodeByTId(tId);
                 if(typeof t.samples=="undefined"){
                   Boxy.alert("暂无数据")
                   return false;
@@ -145,6 +165,10 @@ var Query = {
             return false;
     })
     $("#sqlTree").block();
+    this.getMeta(t,setting);
+
+  },
+  getMeta:function(t,setting){
     $.get(
       "/sql/meta", {
 
@@ -152,16 +176,14 @@ var Query = {
       function(data,status) {
         $("#sqlTree").unblock();
         if(status=="success"){
-          //var data=[{"children":[{"children":[{"children":[{"children":[{"name":"item","type":"varchar(255)"},{"name":"id","type":"integer primary key autoincrement"}],"name":"smile","samples":[["hehe",1],["haha",2]],"type":"table"}],"name":"db","type":"namespace"}],"name":"panda","type":"namespace"}],"name":"WoW","type":"namespace"},{"children":[{"children":[{"children":[{"children":[{"name":"item","type":"varchar(255)"},{"name":"id","type":"integer primary key autoincrement"}],"name":"smile","samples":[["hehe",1],["haha",2]],"type":"table"}],"name":"db","type":"namespace"}],"name":"panda","type":"namespace"}],"name":"WoW","type":"namespace"}];
-          tree = $.fn.zTree.init(t, setting, data);
-          Query.setTreeHandle(tree);
+          Query.tree = $.fn.zTree.init(t, setting, data);
+          Query.setTreeHandle(Query.tree);
           Query.setTabsInt(data);
-          //select_pro.append(proArr.join(''));
-          //select_ver.append(verArr.join(''));
+        }else{
+          Query.getMeta(t,setting);
         }
       },
       "json");
-
   },
   setTreeHandle: function(obj) {
     var tree = $("#sqlTree"),
@@ -201,7 +223,7 @@ var Query = {
       tabWidth: 80, //Use fix width
       items: dd,
       onCloseTab: function(me, c, a) {
-
+        $(".sqlRTable div[rel="+c+"]").remove();
         //me.closeTab(c);        
         //Boxy.confirm("确定删除？", function() {me.closeTab(c);return true;}, {title: "提示信息"});      
         //$(this).parents(".item").remove();
@@ -258,12 +280,13 @@ var Query = {
       $(".sqlTime",main).html("");
       $(".sqlRTable > div").hide();
       $(".sqlRTable div[rel=tab"+i+"]").show()
-
+      //this.setCurrentTables(i);
       if(typeof value!=="undefined"){
         Query.editor[i].setOption("value", value);
       }
   },
-  setGrid: function(title,value,id,url) {
+
+  setGrid: function(title,value,id,url,mainName) {
 
 var values=value,
     column=title;
@@ -271,11 +294,10 @@ var allColumn=[];
     for (var i=0,l=column.length;i<l;i++){ 
       allColumn.push({"sTitle":column[i]});
     }
-    var main=Query.getCurrentTab(),mainName=main.attr("name"),
-        resultHtml='<div rel="'+mainName+'"></div>';
+    var resultHtml='<div rel="'+mainName+'"></div>';
     if($(".sqlRTable div[rel="+mainName+"]").length>0){
       $(".sqlRTable div[rel="+mainName+"]").remove();
-    }    
+    }
     $(".sqlRTable").append(resultHtml);
     var currentResult=$(".sqlRTable div[rel="+mainName+"]");
     currentResult.html($("#tableResult").html());
@@ -387,6 +409,16 @@ var params={
   getCurrentTab:function(){
     return $("#sqlTab > .body > .main:visible");
   },
+  getCurrentValue:function(){
+    var currentTab=this.getCurrentTab(),
+        app=$(".select_pro",currentTab).val(),
+        ver=$(".select_ver",currentTab).val();
+
+    return {
+      app:app,
+      ver:ver
+    }    
+  },
   getCurrentEditor:function(){
     var main = Query.getCurrentTab(),
       index = main.attr("name").split("tab")[1];
@@ -424,13 +456,11 @@ var params={
         return;
       }
 
-      
-      //if($(this).find(".blockUI").length){console.log(1);return;}
       var pro=Query.getQueryOptions().pro,
           ver=Query.getQueryOptions().ver,
           sql=Query.getQueryOptions().sql,
           main=Query.getCurrentTab(),
-          mainName=main.attr("name"),getResult={};
+          mainName=main.attr("name");
 
           
       if(pro=="产品"){
@@ -497,9 +527,9 @@ var params={
                                           }else if(data.status=="running"){
                                             
                                             //var now=Common.getTimes();
-                                            Common.getSelectTime(Common.getTimes(),main);
+                                            Common.getSelectTime(Common.getTimes(),mainName);
 
-                                            getResult[mainName]=setInterval(function(){
+                                            Query.getResult[mainName]=setInterval(function(){
                                                 $.get(
                                                 "/sql/queries/"+id+"/", {
                                                   "timestamp": Common.getTimes()
@@ -529,22 +559,17 @@ var params={
                                                       $(".progress .bar",main).css("width","100%").text("100%");
                                                       setTimeout(function(){$(".progress",main).css("display","none");},800);
 
-                                                      //$("#sqlDownload").attr("data-url",url);
-                                                      
-
-                                                      //$("#sqlDownload").css("visibility","visible");
-
-                                                      clearInterval(getResult[mainName]);
+                                                      clearInterval(Query.getResult[mainName]);
                                                       clearInterval(Common.timer[mainName]);
                                                       $(".sqlTime",main).html("本次查询执行时间："+$(".sqlTime",main).html());                                
-                                                      Query.setGrid(data.result.titles,data.result.values,id,url);
+                                                      Query.setGrid(data.result.titles,data.result.values,id,url,mainName);
                                                     }else if(data.status=="failed"){
                                                       submitT.data("n",0);
                                                       submitT.unblock();
                                                       var error=data.error,
                                                           log=data.log;
 
-                                                          clearInterval(getResult[mainName]);
+                                                          clearInterval(Query.getResult[mainName]);
                                                           clearInterval(Common.timer[mainName]);
                                                           $(".progress",main).css("display","none");
                                                           $(".sqlTime",main).html("");
@@ -796,6 +821,7 @@ var params={
                 "sPaginationType": "full_numbers",
                 bLengthChange:false,
                 bSort:true,
+                bSortClasses:false,
                 "aaData": values,
                 "aoColumns":allColumn,
                 sScrollY:"300px",
@@ -836,7 +862,15 @@ var params={
       var data_app=' data-app='+arguments[2],
           data_ver=' data-ver='+arguments[3];
     }
-    var html='<a class='+cls+' rel="'+value+'" href="javascript:void(0);"'+data_app+data_ver+'>'+opName+'</a>';
+    if(typeof value !="undefined"){
+      var v=value.replace(/['"]/g,"\'");
+    }else{
+      var v="";
+    }
+    
+
+    //var html="<a class="+cls+" rel='"+value+"' href='javascript:void(0);'"+data_app+data_ver+">"+opName+"</a>";
+    var html='<a class='+cls+' rel="'+v+'" href="javascript:void(0);"'+data_app+data_ver+'>'+opName+'</a>';
     return html;
   },
   doTablesOp:function(){
