@@ -1,4 +1,3 @@
-
 var Collectors = {
   init: function() {
     this.getCollectors();
@@ -101,8 +100,8 @@ var Collectors = {
                     $(".colTips").html(tipHtml);
                     $(".colTips a").live("click",function(){
                       $(this).parent().html("");
-                    })                                        
-                  }                  
+                    })
+                  }
                   
                   titles.push();
                   Common.setGrid(titles,v,"<span class='sqlIcon tipIcon'></span>常用查询");
@@ -238,7 +237,7 @@ var Collectors = {
                   for (var j=0,l=data.length;j<l;j++){
                       if(data[j].status=="abandoned"){
                             titles[j]=[];
-                            v[j]=[];                        
+                            v[j]=[];
 
                             for (var i in data[j]){
                                 if(i=="id"){
@@ -246,12 +245,12 @@ var Collectors = {
                                   delete data[j][i];
                                 }else{
                                   titles[j].push(i);
-                                  v[j].push(data[j][i]);                    
-                                }                                         
+                                  v[j].push(data[j][i]);
+                                }
 
                             }
 
-                      }                   
+                      }
               
                   }
 
@@ -269,7 +268,7 @@ var Collectors = {
     "recent-sync":"删除时间",
     "url":"收集器地址",
     "status":"状态"
-  }    
+  }
       var values=Common.formatArr(value),column=Common.formatArr(title);
 
       column=column[0];
@@ -292,9 +291,9 @@ var Collectors = {
           "sPaginationType": "full_numbers",
           bLengthChange:false,
           bSort:false,
+          bSortClasses:false,            
           "aaData": values,
           "aoColumns":allColumn,
-          sScrollY:"300px",
           oLanguage:{
             "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
             "sSearch":"搜索：",
@@ -305,8 +304,8 @@ var Collectors = {
               "sLast": "尾页",
               "sNext": "下一页",
               "sPrevious": "上一页"
-            }                    
-          }     
+            }
+          }
         });
-    }  
+    }
 }

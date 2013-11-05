@@ -634,6 +634,7 @@ a.sqlLogLink{
 	text-align: left;
 	color: #fff;
 	font-weight: bold;
+	background: #76B94F;
 }
 #sqlTable td{
 	border:1px solid #d3d8db;

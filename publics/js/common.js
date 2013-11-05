@@ -180,7 +180,6 @@ var Common={
         bSortClasses:false,
         "aaData": values,
         "aoColumns":allColumn,
-        sScrollX:"100%",
         oLanguage:{
           "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
           "sSearch":"搜索：",
