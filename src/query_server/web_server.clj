@@ -436,13 +436,13 @@
                 (into []
                     (for [
                         [k v] @results
-                        :let [{:keys [query status url submit-time duration]} v]
+                        :let [{:keys [query status url submit_time duration]} v]
                         ]
                         (merge {
                                 :id k
                                 :query query
                                 :status status
-                                :submit_time submit-time
+                                :submit_time submit_time
                             }
                             (if duration {:duration duration} {})
                             (if url {:url url} {})
