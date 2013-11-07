@@ -114,8 +114,10 @@ var Query = {
               html="`"+appName+"`.`"+verName+"`.`"+name+"`";
             }
 
-            var currentV=Query.getCurrentEditor().getValue();
-            Query.getCurrentEditor().setValue(currentV+" "+html);           
+            //var currentV=Query.getCurrentEditor().getValue();
+            //Query.getCurrentEditor().setValue(currentV+" "+html);
+            var currentCursor=Query.getCurrentEditor().getCursor();
+            Query.getCurrentEditor().replaceRange(" "+html,currentCursor,currentCursor);           
             return false;
           } else if (type == "namespace") {
             return false;
@@ -135,8 +137,10 @@ var Query = {
               html="`"+appName+"`.`"+verName+"`.`"+pNodeName+"`.`"+name+"`";
             } 
 
-            var currentV=Query.getCurrentEditor().getValue();
-            Query.getCurrentEditor().setValue(currentV+" "+html);
+            //var currentV=Query.getCurrentEditor().getValue();
+            //Query.getCurrentEditor().setValue(currentV+" "+html);
+            var currentCursor=Query.getCurrentEditor().getCursor();
+            Query.getCurrentEditor().replaceRange(" "+html,currentCursor,currentCursor);             
             return false;
           }
         }

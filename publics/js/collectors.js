@@ -62,35 +62,45 @@ var Collectors = {
                   if(!data.length){return;}
                   var titles=["name", "url", "status", "recent-sync", "操作"];
                   var v=[],stop=[];
-                  for (var j=0,l=data.length;j<l;j++){
-                      v[j] = [];
-                      v[j].push(data[j].name);
-                      v[j].push(data[j].url);
 
-                      if (data[j].status == "no-sync") {
-                        v[j].push("待同步");
-                      } else if (data[j].status == "running") {
-                        v[j].push("运行中");
-                      } else if (data[j].status == "stopped") {
-                        v[j].push("已停止");
-                        stop.push(data[j].name)
-                      } else if (data[j].status == "abandoned") {
-                        v[j].push("已废弃");
-                      }
+                  
+                      for (var j=0,l=data.length;j<l;j++){
+                        if(data[j].status !== "abandoned"){                        
+                          v[j] = [];
+                          v[j].push(data[j].name);
+                          v[j].push(data[j].url);
 
-                      if (data[j]["recent-sync"] == undefined || data[j]["recent-sync"] == null) {
-                        v[j].push('--');
-                      } else {
-                        v[j].push(new Date(data[j]["recent-sync"]).toLocaleString())
-                      }
+                          if (data[j].status == "no-sync") {
+                            v[j].push("待同步");
+                          } else if (data[j].status == "running") {
+                            v[j].push("运行中");
+                          } else if (data[j].status == "stopped") {
+                            v[j].push("已停止");
+                            stop.push(data[j].name)
+                          } else if (data[j].status == "abandoned") {
+                            v[j].push("已废弃");
+                          }
 
-                      var del=Collectors.getTablesOp("del",data[j].id);
-                      var edit=""
-                      if(data[j].status=="no-sync"){
-                        var edit=Collectors.getTablesOp("edit",data[j].id+"__"+data[j].name+"__"+data[j].url)
-                      }
-                      v[j].push(del+" "+edit);
-                  }
+                          if (data[j]["recent-sync"] == undefined || data[j]["recent-sync"] == null) {
+                            v[j].push('--');
+                          } else {
+                            v[j].push(new Date(data[j]["recent-sync"]).toLocaleString())
+                          }
+
+                          var del=Collectors.getTablesOp("del",data[j].id);
+                          var edit=""
+
+                          if(data[j].status == "abandoned"){
+                            var del="";
+                          }
+                          if(data[j].status=="no-sync"){
+                            var edit=Collectors.getTablesOp("edit",data[j].id+"__"+data[j].name+"__"+data[j].url)
+                          }
+                          v[j].push(del+" "+edit);
+                        }  
+                      }//for data                    
+                  
+
 
 
                   if(stop.length){
@@ -232,51 +242,44 @@ var Collectors = {
                 401:function(){alert("暂时没有结果")},
                 200:function(data){
                   if(!data.length){return;}
-                  var titles=[],v=[],data_id=[];
+                  var titles=["name", "url", "recent-sync", "reason"],v=[];
 
                   for (var j=0,l=data.length;j<l;j++){
                       if(data[j].status=="abandoned"){
-                            titles[j]=[];
                             v[j]=[];
-
-                            for (var i in data[j]){
-                                if(i=="id"){
-                                  data_id.push(data[j][i]);
-                                  delete data[j][i];
-                                }else{
-                                  titles[j].push(i);
-                                  v[j].push(data[j][i]);
-                                }
-
+                            v[j].push(data[j].name);
+                            v[j].push(data[j].url);
+                            if (data[j]["recent-sync"] == undefined || data[j]["recent-sync"] == null) {
+                              v[j].push('--');
+                            } else {
+                              v[j].push(new Date(data[j]["recent-sync"]).toLocaleString())
                             }
+                            v[j].push(data[j].reason);                         
 
                       }
               
                   }
 
-                  Collectors.setPopGrid(titles,v,"<span class='sqlIcon tipIcon'></span>收集器历史操作");
+                  Collectors.setPopGrid(titles,v,"<span class='sqlIcon tipIcon'></span>查看已废弃收集器");
                 }
               }
 
           });
     })
   },
-  setPopGrid:function(title,value,poptitle,option){//列名，值，弹窗标题，是否要开启选项
+  setPopGrid:function(title,value,poptitle){//列名，值，弹窗标题，是否要开启选项
   var params={
-    "reason":"备注",
+    "reason":"废弃理由",
     "name":"数据收集器名称",
-    "recent-sync":"删除时间",
-    "url":"收集器地址",
-    "status":"状态"
+    "recent-sync":"最后一次同步时间",
+    "url":"收集器路径"
   }
-      var values=Common.formatArr(value),column=Common.formatArr(title);
-
-      column=column[0];
+      var values=Common.formatArr(value);
 
       var allColumn=[];
 
-      for (var i=0,l=column.length;i<l;i++){
-        allColumn.push({"sTitle":params[column[i]]});
+      for (var i=0,l=title.length;i<l;i++){
+        allColumn.push({"sTitle":params[title[i]]});
       }
 
       var popHtml='<div id="pop"><table cellpadding="0" cellspacing="0" border="0" id="popGrid"></table></div>';
@@ -294,6 +297,7 @@ var Collectors = {
           bSortClasses:false,            
           "aaData": values,
           "aoColumns":allColumn,
+          sScrollY:"300px",
           oLanguage:{
             "sInfo": "共 _TOTAL_ 条记录 _START_ 到 _END_ ",
             "sSearch":"搜索：",
