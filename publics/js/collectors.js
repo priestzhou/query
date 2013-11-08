@@ -143,6 +143,7 @@ var Collectors = {
               url: "/sql/collectors/"+id,
               type: 'delete',
               data:{
+                        "reason":textareaVal,
                         "timestamp": Common.getTimes()
               },
               dataType: 'json',
