@@ -114,6 +114,7 @@ var Collectors = {
                   }
                   
                   titles.push();
+                  v=Common.formatArr(v);
                   Common.setGrid(titles,v,"<span class='sqlIcon tipIcon'></span>常用查询");
                 }
               }
@@ -142,7 +143,7 @@ var Collectors = {
         $.ajax({
               url: "/sql/collectors/"+id,
               type: 'delete',
-              data:{
+              data:{    
                         "reason":textareaVal,
                         "timestamp": Common.getTimes()
               },
@@ -255,7 +256,11 @@ var Collectors = {
                             } else {
                               v[j].push(new Date(data[j]["recent-sync"]).toLocaleString())
                             }
-                            v[j].push(data[j].reason);                         
+                            if (data[j]["reason"] == undefined || data[j]["reason"] == null) {
+                              v[j].push('--');
+                            } else {
+                              v[j].push(data[j].reason);
+                            }                                                   
 
                       }
               
