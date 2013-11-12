@@ -650,7 +650,7 @@
             cid (-> params (:cid) (Long/parseLong))
             reason (-> params (:reason))
             ]
-            (println (format "DELETE /sql/collectors/%d" cid) cookies)
+            (println (format "DELETE /sql/collectors/%d %s" cid reason) cookies)
             (authenticate cookies)
             (when-not reason
                 (throw+ {
@@ -664,7 +664,7 @@
             (dosync
                 (does-collector-exist? cid)
 
-                (alter collectors update-in [cid] assoc :reason reason)
+                (alter collectors update-in [cid] assoc :status "abandoned" :reason reason)
                 {
                     :status 200
                     :headers {"Content-Type" "application/json"}
